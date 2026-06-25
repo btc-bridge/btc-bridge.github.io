@@ -1,1 +1,123 @@
-f
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BTC Bridge</title>
+  <meta name="description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
+  <link rel="canonical" href="https://btc-bridge.github.io/">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#080806">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BTC Bridge">
+  <meta property="og:description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
+  <meta property="og:url" content="https://btc-bridge.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BTC Bridge">
+  <meta name="twitter:description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://btc-bridge.github.io/#website",
+        "url": "https://btc-bridge.github.io/",
+        "name": "BTC Bridge",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://btc-bridge.github.io/#organization",
+        "name": "BTC Bridge",
+        "url": "https://btc-bridge.github.io/"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://btc-bridge.github.io/#app",
+        "name": "BTC Bridge",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "url": "https://btc-bridge.github.io/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="BTC Bridge">
+      <img src="favicon.png" width="30" height="30" alt="">
+      <span>BTC Bridge</span>
+    </a>
+    <nav class="nav" aria-label="Trusted references">
+      <a href="https://mempool.space/" target="_blank" rel="nofollow noopener noreferrer">Mempool</a>
+      <a href="https://ethereum.org/bridges/" target="_blank" rel="nofollow noopener noreferrer">Bridge guide</a>
+      <a href="https://wbtc.network/" target="_blank" rel="nofollow noopener noreferrer">Wrapped BTC</a>
+    </nav>
+    <span class="spacer"></span>
+    <a class="open-app" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Open app</a>
+  </header>
+
+  <main class="stage">
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">BTC Bridge</h1>
+      <p class="value"><strong>BTC Bridge</strong> helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.</p>
+    </section>
+
+    <section class="app-card" aria-label="Bridge preview">
+      <div class="route">
+        <div class="leg">
+          <span class="label">From</span>
+          <span class="chip">
+            <img src="btc.png" width="28" height="28" alt="BTC">
+            <span>BTC</span>
+          </span>
+        </div>
+        <button class="switch" type="button" data-switch aria-label="Switch direction">
+          <span aria-hidden="true">-&gt;</span>
+        </button>
+        <div class="leg">
+          <span class="label">To</span>
+          <span class="chip">
+            <img src="wbtc.png" width="28" height="28" alt="WBTC">
+            <span>WBTC</span>
+          </span>
+        </div>
+      </div>
+      <a class="enter-app" href="https://avalanche-ecosystem.github.io/" rel="noopener noreferrer">Enter App</a>
+      <p class="note">Preview only</p>
+    </section>
+  </main>
+
+  <footer class="footer">BTC Bridge &mdash; 2026</footer>
+
+  <script>
+  (function () {
+    "use strict";
+
+    var button = document.querySelector("[data-switch]");
+    var chips = document.querySelectorAll(".chip");
+
+    if (!button || chips.length < 2) {
+      return;
+    }
+
+    button.addEventListener("click", function () {
+      var first = chips[0].innerHTML;
+      chips[0].innerHTML = chips[1].innerHTML;
+      chips[1].innerHTML = first;
+    });
+  }());
+  </script>
+</body>
+</html>
