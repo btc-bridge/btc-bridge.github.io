@@ -1,0 +1,1129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>BTC Bridge FAQ Help Center</title>
+  <meta name="description" content="Frequently asked questions regarding bridging fees, speeds, safety, and operation.">
+  <link rel="canonical" href="https://btc-bridge.github.io/faq/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BTC Bridge FAQ Help Center">
+  <meta property="og:description" content="Frequently asked questions regarding bridging fees, speeds, safety, and operation.">
+  <meta property="og:url" content="https://btc-bridge.github.io/faq/">
+  <meta property="og:image" content="https://btc-bridge.github.io/og-cover.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="BTC Bridge FAQ Help Center">
+  <meta name="twitter:description" content="Frequently asked questions regarding bridging fees, speeds, safety, and operation.">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="apple-touch-icon" href="../favicon.png">
+  <style>
+
+
+:root {
+  --bg: #080806;
+  --panel: #11100d;
+  --panel-strong: #171510;
+  --ink: #f7931a; /* Adjusted to Bitcoin Orange for title highlights */
+  --ink-body: #f7f1e8;
+  --muted: #b4aea5;
+  --faint: #787168;
+  --line: rgba(247, 241, 232, 0.13);
+  --line-strong: rgba(247, 241, 232, 0.22);
+  --accent: #f7931a;
+  --accent-soft: rgba(247, 147, 26, 0.14);
+  --shadow: 0 34px 80px -48px rgba(0, 0, 0, 0.95);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  overflow-y: auto; /* Allow scroll on satellites */
+  color: var(--ink-body);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(247, 147, 26, 0.15), transparent 34rem),
+    linear-gradient(180deg, #0d0b08 0%, var(--bg) 54%, #050504 100%);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+a:hover {
+  color: var(--ink-body);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.topbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 70px;
+  padding: 18px clamp(18px, 4vw, 44px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 1.02rem;
+  font-weight: 750;
+  letter-spacing: 0;
+  white-space: nowrap;
+  color: var(--ink-body);
+}
+
+.brand img {
+  flex: 0 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(247, 147, 26, 0.25);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.4vw, 28px);
+  margin-left: 6px;
+}
+
+.nav a {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.nav a:hover, .nav a.active {
+  color: var(--accent);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.open-app {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-body);
+  background: rgba(247, 241, 232, 0.045);
+  font-size: 0.9rem;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.open-app:hover {
+  border-color: rgba(247, 147, 26, 0.55);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: min(100%, 1120px);
+  margin: 0 auto;
+  padding: clamp(12px, 2.5vh, 28px) clamp(18px, 4vw, 44px) clamp(10px, 2vh, 22px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero {
+  display: contents;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.15rem, 7vw, 5.1rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+  font-weight: 820;
+  color: var(--ink-body);
+}
+
+.value {
+  width: min(100%, 50rem);
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.8vw, 1.19rem);
+}
+
+.value strong {
+  color: var(--ink-body);
+  font-weight: 780;
+  box-shadow: inset 0 -0.45em 0 var(--accent-soft);
+}
+
+.app-card {
+  width: min(100%, 590px);
+  margin-top: clamp(26px, 4vh, 38px);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(247, 241, 232, 0.055), rgba(247, 241, 232, 0.018)),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+
+.route {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.leg {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel-strong);
+  text-align: left;
+}
+
+.label {
+  display: block;
+  color: var(--faint);
+  font-size: 0.71rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin-top: 11px;
+  color: var(--ink-body);
+  font-size: 1.11rem;
+  font-weight: 820;
+  line-height: 1.2;
+}
+
+.chip img {
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+}
+
+.chip span {
+  overflow-wrap: anywhere;
+}
+
+.switch {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--accent);
+  background: #0b0a08;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font: inherit;
+  font-weight: 820;
+  line-height: 1;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.switch:hover {
+  border-color: rgba(247, 147, 26, 0.62);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.enter-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 54px;
+  margin-top: 16px;
+  border-radius: 16px;
+  color: #150d04;
+  background: var(--accent);
+  font-size: 1.05rem;
+  font-weight: 830;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.enter-app:hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
+
+.note {
+  margin: 11px 0 0;
+  color: var(--faint);
+  font-size: 0.8rem;
+  font-weight: 560;
+}
+
+.footer {
+  flex: 0 0 auto;
+  padding: 16px 24px 22px;
+  color: var(--faint);
+  font-size: 0.84rem;
+  font-weight: 560;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+
+/* Satellite Layout */
+.satellite-container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  width: 100%;
+}
+
+.breadcrumb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a {
+  color: var(--muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.satellite-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: var(--ink-body);
+}
+
+.satellite-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.satellite-lead strong {
+  color: var(--ink-body);
+}
+
+.section-block {
+  margin-bottom: 40px;
+}
+
+.section-block h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  color: var(--ink-body);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+}
+
+.section-block h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 24px 0 10px;
+  color: var(--ink-body);
+}
+
+.section-block p {
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.section-block p strong {
+  color: var(--ink-body);
+}
+
+.section-block ul, .section-block ol {
+  margin: 16px 0;
+  padding-left: 24px;
+  color: var(--muted);
+}
+
+.section-block li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.section-block li strong {
+  color: var(--ink-body);
+}
+
+/* Info Grid Cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.info-card {
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background-color: var(--panel);
+}
+
+.info-card h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--ink-body);
+}
+
+.info-card p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background-color: var(--panel);
+  margin: 24px 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.data-table th {
+  padding: 14px 18px;
+  background-color: var(--panel-strong);
+  color: var(--ink-body);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+}
+
+.data-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tr:hover td {
+  color: var(--ink-body);
+  background-color: rgba(247, 241, 232, 0.02);
+}
+
+.highlight-cell {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Accordion details/summary for FAQ Page */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background-color: var(--panel);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item[open] {
+  border-color: var(--line-strong);
+}
+
+.faq-item summary {
+  padding: 18px 24px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: var(--ink-body);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.faq-item summary:hover {
+  background-color: rgba(247, 241, 232, 0.02);
+}
+
+.faq-content {
+  padding: 0 24px 20px;
+  font-size: 0.925rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Back Link Button */
+.back-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-body);
+  transition: all 0.2s ease;
+}
+
+.back-cta:hover {
+  border-color: var(--line-strong);
+  background-color: var(--panel-strong);
+  color: var(--accent);
+}
+
+/* Camouflaged Links (blend in for EEAT, fully crawlable) */
+a.inline {
+  color: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(247, 241, 232, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+a.inline:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+@media (max-width: 700px) {
+  .topbar {
+    min-height: 62px;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .open-app {
+    min-height: 38px;
+    padding: 0 14px;
+  }
+
+  .stage {
+    padding: 10px 16px 8px;
+    overflow-y: auto;
+  }
+
+  body {
+    overflow: auto; /* Allow scrolling on mobile body if content flows */
+  }
+
+  h1 {
+    font-size: clamp(2.55rem, 13vw, 3.25rem);
+  }
+
+  .value {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
+  .app-card {
+    margin-top: 24px;
+    padding: 16px;
+    border-radius: 19px;
+  }
+
+  .route {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .leg {
+    padding: 13px 14px;
+  }
+
+  .switch {
+    width: 38px;
+    height: 38px;
+  }
+
+  .switch span {
+    transform: rotate(90deg);
+  }
+
+  .enter-app {
+    min-height: 50px;
+    margin-top: 14px;
+  }
+
+  .footer {
+    padding: 12px 18px 16px;
+  }
+}
+
+@media (max-width: 390px) and (max-height: 820px) {
+  .topbar {
+    min-height: 58px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+  }
+
+  .brand {
+    font-size: 0.96rem;
+  }
+
+  .brand img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .open-app {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 0.86rem;
+  }
+
+  .stage {
+    padding-top: 6px;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+  }
+
+  .value {
+    margin-top: 12px;
+    font-size: 0.94rem;
+  }
+
+  .app-card {
+    margin-top: 18px;
+    padding: 14px;
+  }
+
+  .leg {
+    padding: 12px 13px;
+  }
+
+  .chip {
+    margin-top: 9px;
+    font-size: 1.02rem;
+  }
+
+  .enter-app {
+    min-height: 48px;
+  }
+
+  .note {
+    margin-top: 9px;
+  }
+
+  .footer {
+    padding-top: 9px;
+    padding-bottom: 12px;
+  }
+}
+  
+  
+
+/* --- Satellite Layout Styles (Appended dynamically by Builder) --- */
+:root {
+  --bg-fallback: var(--bg, var(--base, #f9fafc));
+  --ink-body-fallback: var(--ink-body, var(--text, var(--ink, #1f2937)));
+  --muted-fallback: var(--muted, var(--quiet, #4b5563));
+  --panel-fallback: var(--panel, var(--surface, #ffffff));
+  --panel-strong-fallback: var(--panel-strong, var(--surface-soft, var(--base-deep, #f3f4f6)));
+  --line-fallback: var(--line, rgba(0, 0, 0, 0.08));
+  --line-strong-fallback: var(--line-strong, rgba(0, 0, 0, 0.14));
+  --accent-fallback: var(--accent, #625bf3);
+}
+
+body {
+  overflow-y: auto !important;
+  height: auto !important;
+  min-height: 100dvh;
+}
+
+.satellite-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  width: 100%;
+}
+
+.breadcrumb {
+  font-size: 0.875rem;
+  color: var(--muted-fallback);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.breadcrumb a {
+  color: var(--muted-fallback);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-fallback);
+}
+
+.satellite-title {
+  font-size: clamp(2.1rem, 5.5vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  color: var(--ink-body-fallback);
+}
+
+.satellite-lead {
+  font-size: 1.125rem;
+  color: var(--muted-fallback);
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+.satellite-lead strong {
+  color: var(--ink-body-fallback);
+}
+
+.section-block {
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.section-block h2 {
+  font-size: 1.55rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--ink-body-fallback);
+  border-bottom: 1px solid var(--line-fallback);
+  padding-bottom: 8px;
+}
+
+.section-block h3 {
+  font-size: 1.2rem;
+  font-weight: 650;
+  margin: 24px 0 12px;
+  color: var(--ink-body-fallback);
+}
+
+.section-block p {
+  color: var(--muted-fallback);
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.section-block p strong {
+  color: var(--ink-body-fallback);
+}
+
+.section-block ul, .section-block ol {
+  margin: 18px 0;
+  padding-left: 24px;
+  color: var(--muted-fallback);
+}
+
+.section-block li {
+  margin-bottom: 8px;
+  line-height: 1.65;
+}
+
+.section-block li strong {
+  color: var(--ink-body-fallback);
+}
+
+/* Info Grid Cards */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.info-card {
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid var(--line-fallback);
+  background-color: var(--panel-fallback);
+  text-align: left;
+}
+
+.info-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--ink-body-fallback);
+}
+
+.info-card p {
+  font-size: 0.9rem;
+  color: var(--muted-fallback);
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Tables */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--line-fallback);
+  background-color: var(--panel-fallback);
+  margin: 28px 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+  text-align: left;
+}
+
+.data-table th {
+  padding: 15px 20px;
+  background-color: var(--panel-strong-fallback);
+  color: var(--ink-body-fallback);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line-fallback);
+}
+
+.data-table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--line-fallback);
+  color: var(--muted-fallback);
+}
+
+.data-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table tr:hover td {
+  color: var(--ink-body-fallback);
+  background-color: var(--panel-strong-fallback);
+}
+
+.highlight-cell {
+  color: var(--accent-fallback);
+  font-weight: 600;
+}
+
+/* Accordion details/summary for FAQ Page */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.faq-item {
+  border: 1px solid var(--line-fallback);
+  border-radius: 12px;
+  background-color: var(--panel-fallback);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+  text-align: left;
+}
+
+.faq-item[open] {
+  border-color: var(--line-strong-fallback);
+}
+
+.faq-item summary {
+  padding: 20px 24px;
+  font-weight: 650;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  color: var(--ink-body-fallback);
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  color: var(--muted-fallback);
+  transition: transform 0.2s ease;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent-fallback);
+}
+
+.faq-item summary:hover {
+  background-color: var(--panel-strong-fallback);
+}
+
+.faq-content {
+  padding: 0 24px 22px;
+  font-size: 0.95rem;
+  color: var(--muted-fallback);
+  line-height: 1.65;
+}
+
+/* Back Link Button */
+.back-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 12px 24px;
+  background-color: var(--panel-fallback);
+  border: 1px solid var(--line-fallback);
+  border-radius: 9999px;
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--ink-body-fallback);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.back-cta:hover {
+  border-color: var(--line-strong-fallback);
+  background-color: var(--panel-strong-fallback);
+  color: var(--accent-fallback);
+  transform: translateY(-1px);
+}
+
+/* Camouflaged Links (blend in for EEAT, fully crawlable) */
+a.inline {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px dashed var(--line-strong-fallback);
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+a.inline:hover {
+  color: var(--accent-fallback);
+  border-bottom-color: var(--accent-fallback);
+}
+
+.footer {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin: 40px auto 0 !important;
+  padding: 20px 0 !important;
+}
+
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://btc-bridge.github.io/#website",
+      "url": "https://btc-bridge.github.io/",
+      "name": "BTC Bridge"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://btc-bridge.github.io/faq/#webpage",
+      "url": "https://btc-bridge.github.io/faq/",
+      "name": "BTC Bridge FAQ Help Center",
+      "isPartOf": {
+        "@id": "https://btc-bridge.github.io/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://btc-bridge.github.io/faq/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://btc-bridge.github.io/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "BTC Bridge FAQ Help Center"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://btc-bridge.github.io/faq/#faqpage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is my crypto safe inside the bridge?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, because BTC Bridge is built on non-custodial smart contracts. Your assets are secured by mathematics and open-source code rather than human intermediaries. However, you should always check contract verification statuses and security profiles on the <a class=\"inline\" href=\"https://l2beat.com/scaling/summary\" target=\"_blank\" rel=\"noopener noreferrer\">L2BEAT risk database</a> before deploying large sums."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a bridge transfer take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transaction speed depends on block confirmation times on the source chain. Native L1 networks like Bitcoin or Ethereum might require several minutes to confirm finality, whereas L2 networks are processed in seconds. You can track block confirmations on blockchain explorers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What fees are involved in bridging?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bridging involves two main fees: the source network gas fee (to deposit the token), and the protocol fee (to cover validators and target chain execution). BTC Bridge optimizes these parameters dynamically to offer the lowest rates, enabling cheaper access to <a class=\"inline\" href=\"https://en.wikipedia.org/wiki/Decentralized_finance\" target=\"_blank\" rel=\"noopener noreferrer\">decentralized finance (DeFi)</a>."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="BTC Bridge">
+      <img src="../favicon.png" width="30" height="30" alt="">
+      <span>BTC Bridge</span>
+    </a>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="../how-it-works/" >How it works</a>
+      <a href="../faq/" class="active">FAQ</a>
+      <a href="../about/" >About</a>
+      <a href="../security/" >Security</a>
+      <a href="../supported-chains/" >Supported Chains</a>
+    </nav>
+    <span class="spacer"></span>
+    <a class="open-app" href="../dashboard/" rel="noopener noreferrer">Open app</a>
+  </header>
+
+  <main class="satellite-container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../">Home</a> › <span>BTC Bridge FAQ Help Center</span>
+    </nav>
+
+    <h1 class="satellite-title">BTC Bridge FAQ Help Center</h1>
+    <p class="satellite-lead">Frequently asked questions regarding bridging fees, speeds, safety, and operation.</p>
+
+    <div class="faq-list">
+      <details class="faq-item" id="faq-1">
+        <summary>Is my crypto safe inside the bridge?</summary>
+        <div class="faq-content">
+          <p>Yes, because BTC Bridge is built on non-custodial smart contracts. Your assets are secured by mathematics and open-source code rather than human intermediaries. However, you should always check contract verification statuses and security profiles on the <a class="inline" href="https://l2beat.com/scaling/summary" target="_blank" rel="noopener noreferrer">L2BEAT risk database</a> before deploying large sums.</p>
+        </div>
+      </details>
+      <details class="faq-item" id="faq-2">
+        <summary>How long does a bridge transfer take?</summary>
+        <div class="faq-content">
+          <p>Transaction speed depends on block confirmation times on the source chain. Native L1 networks like Bitcoin or Ethereum might require several minutes to confirm finality, whereas L2 networks are processed in seconds. You can track block confirmations on blockchain explorers.</p>
+        </div>
+      </details>
+      <details class="faq-item" id="faq-3">
+        <summary>What fees are involved in bridging?</summary>
+        <div class="faq-content">
+          <p>Bridging involves two main fees: the source network gas fee (to deposit the token), and the protocol fee (to cover validators and target chain execution). BTC Bridge optimizes these parameters dynamically to offer the lowest rates, enabling cheaper access to <a class="inline" href="https://en.wikipedia.org/wiki/Decentralized_finance" target="_blank" rel="noopener noreferrer">decentralized finance (DeFi)</a>.</p>
+        </div>
+      </details></div>
+
+    <div style="margin: 40px 0; display: flex; justify-content: flex-start;">
+      <a class="open-app" href="../dashboard/" style="max-width: 320px; display: inline-flex; justify-content: center; text-decoration: none; padding: 12px 24px; font-weight: 700;">Open BTC Bridge Portal</a>
+    </div>
+
+    <a class="back-cta" href="../">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Portal
+    </a>
+  </main>
+
+  <footer class="footer">
+    <p class="disc" style="font-size: 0.78rem; opacity: 0.7; max-width: 650px; margin: 0 auto; line-height: 1.45; text-align: center;">Disclaimer: Information on this site is provided strictly for educational and historical archiving purposes. BTC Bridge is a reference template. All product names, logos, and brands are property of their respective owners.</p>
+  </footer>
+</body>
+</html>
