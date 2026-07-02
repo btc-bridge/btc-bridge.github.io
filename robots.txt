@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://btc-bridge.github.io/sitemap.xml
