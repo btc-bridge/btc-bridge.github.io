@@ -3,806 +3,359 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BTC Bridge</title>
-  <meta name="description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
+  <title>BTC Bridge - Bitcoin Liquidity App</title>
+  <meta name="description" content="BTC Bridge turns Bitcoin into DeFi-ready WBTC from one non-custodial app. Compare the live route, review costs, and swap from your wallet.">
+  <meta name="theme-color" content="#FBFAF7">
   <link rel="canonical" href="https://btc-bridge.github.io/">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#080806">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="BTC Bridge">
-  <meta property="og:description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
-  <meta property="og:url" content="https://btc-bridge.github.io/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="BTC Bridge">
-  <meta name="twitter:description" content="BTC Bridge helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.">
+  <meta name="robots" content="index,follow">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
-  <style>
-:root {
-  --bg: #080806;
-  --panel: #11100d;
-  --panel-strong: #171510;
-  --ink: #f7931a; /* Adjusted to Bitcoin Orange for title highlights */
-  --ink-body: #f7f1e8;
-  --muted: #b4aea5;
-  --faint: #787168;
-  --line: rgba(247, 241, 232, 0.13);
-  --line-strong: rgba(247, 241, 232, 0.22);
-  --accent: #f7931a;
-  --accent-soft: rgba(247, 147, 26, 0.14);
-  --shadow: 0 34px 80px -48px rgba(0, 0, 0, 0.95);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  min-height: 100dvh;
-  margin: 0;
-  overflow-y: auto; /* Allow scroll on satellites */
-  color: var(--ink-body);
-  background:
-    radial-gradient(circle at 50% 0%, rgba(247, 147, 26, 0.15), transparent 34rem),
-    linear-gradient(180deg, #0d0b08 0%, var(--bg) 54%, #050504 100%);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  display: flex;
-  flex-direction: column;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: color 160ms ease;
-}
-
-a:hover {
-  color: var(--ink-body);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-.topbar {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  min-height: 70px;
-  padding: 18px clamp(18px, 4vw, 44px);
-  border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  font-size: 1.02rem;
-  font-weight: 750;
-  letter-spacing: 0;
-  white-space: nowrap;
-  color: var(--ink-body);
-}
-
-.brand img {
-  flex: 0 0 auto;
-  border-radius: 50%;
-  box-shadow: 0 0 0 1px rgba(247, 147, 26, 0.25);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(16px, 2.4vw, 28px);
-  margin-left: 6px;
-}
-
-.nav a {
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: color 160ms ease;
-}
-
-.nav a:hover, .nav a.active {
-  color: var(--accent);
-}
-
-.spacer {
-  flex: 1 1 auto;
-}
-
-.open-app {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 0 18px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  color: var(--ink-body);
-  background: rgba(247, 241, 232, 0.045);
-  font-size: 0.9rem;
-  font-weight: 700;
-  white-space: nowrap;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
-}
-
-.open-app:hover {
-  border-color: rgba(247, 147, 26, 0.55);
-  background: var(--accent-soft);
-  transform: translateY(-1px);
-}
-
-.stage {
-  flex: 1 1 auto;
-  min-height: 0;
-  width: min(100%, 1120px);
-  margin: 0 auto;
-  padding: clamp(12px, 2.5vh, 28px) clamp(18px, 4vw, 44px) clamp(10px, 2vh, 22px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.hero {
-  display: contents;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(3.15rem, 7vw, 5.1rem);
-  line-height: 0.98;
-  letter-spacing: 0;
-  font-weight: 820;
-  color: var(--ink-body);
-}
-
-.value {
-  width: min(100%, 50rem);
-  margin: 18px auto 0;
-  color: var(--muted);
-  font-size: clamp(1rem, 1.8vw, 1.19rem);
-}
-
-.value strong {
-  color: var(--ink-body);
-  font-weight: 780;
-  box-shadow: inset 0 -0.45em 0 var(--accent-soft);
-}
-
-.app-card {
-  width: min(100%, 590px);
-  margin-top: clamp(26px, 4vh, 38px);
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background:
-    linear-gradient(180deg, rgba(247, 241, 232, 0.055), rgba(247, 241, 232, 0.018)),
-    var(--panel);
-  box-shadow: var(--shadow);
-}
-
-.route {
-  display: flex;
-  align-items: stretch;
-  gap: 12px;
-}
-
-.leg {
-  flex: 1 1 0;
-  min-width: 0;
-  padding: 15px 16px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--panel-strong);
-  text-align: left;
-}
-
-.label {
-  display: block;
-  color: var(--faint);
-  font-size: 0.71rem;
-  font-weight: 760;
-  letter-spacing: 0.08em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.chip {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-  margin-top: 11px;
-  color: var(--ink-body);
-  font-size: 1.11rem;
-  font-weight: 820;
-  line-height: 1.2;
-}
-
-.chip img {
-  width: 28px;
-  height: 28px;
-  flex: 0 0 auto;
-  border-radius: 50%;
-}
-
-.chip span {
-  overflow-wrap: anywhere;
-}
-
-.switch {
-  flex: 0 0 auto;
-  align-self: center;
-  width: 42px;
-  height: 42px;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  color: var(--accent);
-  background: #0b0a08;
-  cursor: pointer;
-  display: grid;
-  place-items: center;
-  font: inherit;
-  font-weight: 820;
-  line-height: 1;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
-}
-
-.switch:hover {
-  border-color: rgba(247, 147, 26, 0.62);
-  background: var(--accent-soft);
-  transform: translateY(-1px);
-}
-
-.enter-app {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 54px;
-  margin-top: 16px;
-  border-radius: 16px;
-  color: #150d04;
-  background: var(--accent);
-  font-size: 1.05rem;
-  font-weight: 830;
-  transition: background 160ms ease, transform 160ms ease;
-}
-
-.enter-app:hover {
-  background: var(--accent);
-  transform: translateY(-1px);
-}
-
-.note {
-  margin: 11px 0 0;
-  color: var(--faint);
-  font-size: 0.8rem;
-  font-weight: 560;
-}
-
-.footer {
-  flex: 0 0 auto;
-  padding: 16px 24px 22px;
-  color: var(--faint);
-  font-size: 0.84rem;
-  font-weight: 560;
-  text-align: center;
-  border-top: 1px solid var(--line);
-}
-
-/* Satellite Layout */
-.satellite-container {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 40px 20px 80px;
-  width: 100%;
-}
-
-.breadcrumb {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.breadcrumb a {
-  color: var(--muted);
-}
-
-.breadcrumb a:hover {
-  color: var(--accent);
-}
-
-.satellite-title {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  color: var(--ink-body);
-}
-
-.satellite-lead {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 40px;
-}
-
-.satellite-lead strong {
-  color: var(--ink-body);
-}
-
-.section-block {
-  margin-bottom: 40px;
-}
-
-.section-block h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 16px;
-  color: var(--ink-body);
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 8px;
-}
-
-.section-block h3 {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 24px 0 10px;
-  color: var(--ink-body);
-}
-
-.section-block p {
-  color: var(--muted);
-  margin-bottom: 16px;
-  line-height: 1.7;
-}
-
-.section-block p strong {
-  color: var(--ink-body);
-}
-
-.section-block ul, .section-block ol {
-  margin: 16px 0;
-  padding-left: 24px;
-  color: var(--muted);
-}
-
-.section-block li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-.section-block li strong {
-  color: var(--ink-body);
-}
-
-/* Info Grid Cards */
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.info-card {
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid var(--line);
-  background-color: var(--panel);
-}
-
-.info-card h4 {
-  font-size: 0.95rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--ink-body);
-}
-
-.info-card p {
-  font-size: 0.875rem;
-  color: var(--muted);
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* Tables */
-.table-wrapper {
-  overflow-x: auto;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background-color: var(--panel);
-  margin: 24px 0;
-}
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-  text-align: left;
-}
-
-.data-table th {
-  padding: 14px 18px;
-  background-color: var(--panel-strong);
-  color: var(--ink-body);
-  font-weight: 700;
-  border-bottom: 1px solid var(--line);
-}
-
-.data-table td {
-  padding: 14px 18px;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-}
-
-.data-table tr:last-child td {
-  border-bottom: 0;
-}
-
-.data-table tr:hover td {
-  color: var(--ink-body);
-  background-color: rgba(247, 241, 232, 0.02);
-}
-
-.highlight-cell {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* Accordion details/summary for FAQ Page */
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin: 24px 0;
-}
-
-.faq-item {
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background-color: var(--panel);
-  overflow: hidden;
-  transition: border-color 0.2s ease;
-}
-
-.faq-item[open] {
-  border-color: var(--line-strong);
-}
-
-.faq-item summary {
-  padding: 18px 24px;
-  font-weight: 600;
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  list-style: none;
-  color: var(--ink-body);
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::after {
-  content: "+";
-  font-size: 1.25rem;
-  color: var(--muted);
-  transition: transform 0.2s ease;
-}
-
-.faq-item[open] summary::after {
-  transform: rotate(45deg);
-  color: var(--accent);
-}
-
-.faq-item summary:hover {
-  background-color: rgba(247, 241, 232, 0.02);
-}
-
-.faq-content {
-  padding: 0 24px 20px;
-  font-size: 0.925rem;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-/* Back Link Button */
-.back-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 40px;
-  padding: 12px 24px;
-  background-color: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: 9999px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--ink-body);
-  transition: all 0.2s ease;
-}
-
-.back-cta:hover {
-  border-color: var(--line-strong);
-  background-color: var(--panel-strong);
-  color: var(--accent);
-}
-
-/* Camouflaged Links (blend in for EEAT, fully crawlable) */
-a.inline {
-  color: inherit;
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(247, 241, 232, 0.3);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-a.inline:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-@media (max-width: 700px) {
-  .topbar {
-    min-height: 62px;
-    gap: 12px;
-    padding: 14px 16px;
-  }
-
-  .nav {
-    display: none;
-  }
-
-  .open-app {
-    min-height: 38px;
-    padding: 0 14px;
-  }
-
-  .stage {
-    padding: 10px 16px 8px;
-    overflow-y: auto;
-  }
-
-  body {
-    overflow: auto; /* Allow scrolling on mobile body if content flows */
-  }
-
-  h1 {
-    font-size: clamp(2.55rem, 13vw, 3.25rem);
-  }
-
-  .value {
-    margin-top: 14px;
-    font-size: 0.98rem;
-    line-height: 1.45;
-  }
-
-  .app-card {
-    margin-top: 24px;
-    padding: 16px;
-    border-radius: 19px;
-  }
-
-  .route {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .leg {
-    padding: 13px 14px;
-  }
-
-  .switch {
-    width: 38px;
-    height: 38px;
-  }
-
-  .switch span {
-    transform: rotate(90deg);
-  }
-
-  .enter-app {
-    min-height: 50px;
-    margin-top: 14px;
-  }
-
-  .footer {
-    padding: 12px 18px 16px;
-  }
-}
-
-@media (max-width: 390px) and (max-height: 820px) {
-  .topbar {
-    min-height: 58px;
-    padding-top: 11px;
-    padding-bottom: 11px;
-  }
-
-  .brand {
-    font-size: 0.96rem;
-  }
-
-  .brand img {
-    width: 28px;
-    height: 28px;
-  }
-
-  .open-app {
-    min-height: 36px;
-    padding: 0 12px;
-    font-size: 0.86rem;
-  }
-
-  .stage {
-    padding-top: 6px;
-  }
-
-  h1 {
-    font-size: 2.6rem;
-  }
-
-  .value {
-    margin-top: 12px;
-    font-size: 0.94rem;
-  }
-
-  .app-card {
-    margin-top: 18px;
-    padding: 14px;
-  }
-
-  .leg {
-    padding: 12px 13px;
-  }
-
-  .chip {
-    margin-top: 9px;
-    font-size: 1.02rem;
-  }
-
-  .enter-app {
-    min-height: 48px;
-  }
-
-  .note {
-    margin-top: 9px;
-  }
-
-  .footer {
-    padding-top: 9px;
-    padding-bottom: 12px;
-  }
-}
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://btc-bridge.github.io/#website",
-        "url": "https://btc-bridge.github.io/",
-        "name": "BTC Bridge",
-        "inLanguage": "en"
-      },
-      {
-        "@type": "Organization",
-        "@id": "https://btc-bridge.github.io/#organization",
-        "name": "BTC Bridge",
-        "url": "https://btc-bridge.github.io/"
-      },
-      {
-        "@type": "WebApplication",
-        "@id": "https://btc-bridge.github.io/#app",
-        "name": "BTC Bridge",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "url": "https://btc-bridge.github.io/",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      }
-    ]
-  }
-  </script>
-
   <link rel="prefetch" href="dashboard/">
-  <link rel="prerender" href="dashboard/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BTC Bridge - Bitcoin Liquidity App">
+  <meta property="og:description" content="Turn BTC into WBTC through a non-custodial bridge flow built for wallet-native DeFi access.">
+  <meta property="og:image" content="og-cover.png">
+  <meta property="og:url" content="https://btc-bridge.github.io/">
+  <style>
+  :root{
+    --bg:#FBFAF7; --panel:#FFFFFF; --field:#F6F5F1;
+    --ink:#15161C; --muted:#646A78; --faint:#9AA0AD;
+    --line:rgba(20,22,30,.09); --line-2:rgba(20,22,30,.05);
+    --accent:#F7931A; --accent-ink:#B66C13; --accent-soft:rgba(247,147,26,.1);
+    --radius:22px; --radius-sm:14px;
+    --shadow-card:0 1px 0 rgba(20,22,30,.03), 0 34px 64px -30px rgba(20,22,60,.30), 0 10px 24px -18px rgba(20,22,60,.18);
+    --shadow-soft:0 1px 0 rgba(20,22,30,.02), 0 20px 44px -32px rgba(20,22,60,.24);
+    --ui:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+    --body:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; overflow-x:hidden}
+  body{background:var(--bg); color:var(--ink); font-family:var(--body); line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; position:relative}
+  a{color:inherit; text-decoration:none}
+  a.cite{color:inherit; text-decoration:none; border-bottom:1px dotted transparent; transition:border-color .15s ease}
+  a.cite:hover{border-bottom-color:var(--faint)}
+  img{display:block; max-width:100%}
+  button{font:inherit; cursor:pointer; border:none; background:none; color:inherit}
+  h1,h2,h3,p{margin:0}
+
+  /* texture: fine grid + soft glow */
+  .bg{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
+  .bg .glow{position:absolute; inset:0; background:
+      radial-gradient(720px 480px at 50% -4%, rgba(247,147,26,.12), transparent 62%),
+      radial-gradient(620px 520px at 88% 14%, rgba(247,147,26,.06), transparent 60%);}
+  .bg .grid{position:absolute; inset:-2px;
+    background-image:linear-gradient(rgba(20,22,30,.038) 1px, transparent 1px), linear-gradient(90deg, rgba(20,22,30,.038) 1px, transparent 1px);
+    background-size:128px 128px;
+    -webkit-mask-image:radial-gradient(130% 80% at 50% 8%, #000 44%, transparent 88%);
+            mask-image:radial-gradient(130% 80% at 50% 8%, #000 44%, transparent 88%);}
+
+  .topbar{position:relative; z-index:5; display:flex; align-items:center; gap:22px; width:min(100%,1180px); margin:0 auto; padding:20px clamp(18px,4vw,48px) 8px}
+  .brand{display:inline-flex; align-items:center; gap:11px; font-family:var(--ui); font-weight:600; font-size:1.05rem; letter-spacing:-.01em}
+  .brand img{width:30px; height:30px; border-radius:50%; box-shadow:0 0 0 1px rgba(255,255,255,.8), 0 8px 18px -12px rgba(247,147,26,.5)}
+  .spacer{flex:1}
+  .nav{display:flex; align-items:center; gap:clamp(16px,2.6vw,30px)}
+  .nav a{font-family:var(--ui); font-weight:500; font-size:.92rem; color:var(--muted); transition:color .16s ease}
+  .nav a:hover{color:var(--accent-ink)}
+
+  .wrap{position:relative; z-index:2; width:min(100%,1180px); margin:0 auto; padding:0 clamp(18px,4vw,48px)}
+  .sec{padding-top:clamp(50px,7vh,90px); padding-bottom:clamp(50px,7vh,90px)}
+  .sec-head{text-align:center; max-width:60ch; margin:0 auto clamp(28px,4vh,42px)}
+  .eyebrow{display:inline-flex; align-items:center; gap:9px; font-family:var(--ui); font-weight:600; font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent-ink)}
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft)}
+  .eyebrow svg{width:15px; height:15px}
+  .h2{margin-top:14px; font-family:var(--ui); font-weight:700; color:var(--ink); font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.04; letter-spacing:-.02em}
+  .sec-head p{margin-top:14px; color:var(--muted); font-size:clamp(1rem,1.3vw,1.12rem); line-height:1.6}
+
+  /* hero - CENTERED */
+  .hero{text-align:center; padding-top:clamp(26px,5vh,60px); padding-bottom:clamp(20px,3vh,40px)}
+  .hero .eyebrow{margin:0 auto}
+  .hero h1{margin:22px auto 0; font-family:var(--ui); font-weight:700; color:var(--ink); font-size:clamp(3rem,7vw,5.4rem); line-height:.97; letter-spacing:-.035em; max-width:15ch}
+  .deck{max-width:52ch; margin:20px auto 0; color:var(--muted); font-size:clamp(1.05rem,1.5vw,1.22rem); line-height:1.58}
+  .deck strong{color:var(--ink); font-weight:600; box-shadow:inset 0 -.36em 0 var(--accent-soft)}
+  .cta-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px; margin:28px 0 0}
+  .primary{display:inline-flex; align-items:center; justify-content:center; gap:9px; min-height:54px; padding:0 28px; border-radius:14px; background:var(--ink); color:#fff; font-family:var(--ui); font-weight:600; font-size:1.02rem; letter-spacing:-.01em; box-shadow:0 16px 30px -16px rgba(20,22,30,.7); transition:transform .18s ease, filter .18s ease}
+  .primary:hover{transform:translateY(-1px); filter:brightness(1.1)}
+  .primary svg{width:17px; height:17px}
+  .ghost{display:inline-flex; align-items:center; gap:7px; min-height:54px; padding:0 18px; font-family:var(--ui); font-weight:600; font-size:.98rem; color:var(--muted); transition:color .16s ease}
+  .ghost:hover{color:var(--accent-ink)}
+  .ghost svg{width:15px; height:15px}
+  .chips{list-style:none; margin:24px 0 0; padding:0; display:flex; flex-wrap:wrap; justify-content:center; gap:9px}
+  .chips li{display:inline-flex; align-items:center; gap:7px; min-height:36px; padding:7px 14px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.7); font-family:var(--ui); font-weight:500; font-size:.86rem; color:var(--ink)}
+  .chips li::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent)}
+
+  /* swap card - CENTERED */
+  .card{width:min(100%,420px); margin:clamp(32px,5vh,48px) auto 0; padding:14px; background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow-card); position:relative; text-align:left}
+  .card::before{content:""; position:absolute; inset:0 0 auto; height:1px; border-radius:var(--radius) var(--radius) 0 0; background:linear-gradient(90deg, transparent, rgba(247,147,26,.4), transparent)}
+  .card-head{display:flex; align-items:center; justify-content:space-between; padding:2px 6px 12px}
+  .card-head .ct{font-family:var(--ui); font-weight:600; font-size:1.04rem}
+  .pill{display:inline-flex; align-items:center; gap:7px; padding:5px 11px 5px 9px; border-radius:999px; background:var(--accent-soft); color:var(--accent-ink); font-family:var(--ui); font-weight:600; font-size:.76rem}
+  .pill .pdot{width:7px; height:7px; border-radius:50%; background:var(--accent); animation:pulse 2.4s ease-out infinite}
+  .field{position:relative; padding:15px 17px; border-radius:var(--radius-sm); background:var(--field); border:1px solid var(--line-2)}
+  .field + .field{margin-top:6px}
+  .flabel{display:block; color:var(--muted); font-size:.82rem; font-weight:500; margin-bottom:12px}
+  .frow{display:flex; align-items:center; justify-content:space-between; gap:12px}
+  .tokpill{display:inline-flex; align-items:center; gap:8px; padding:6px 12px 6px 6px; border-radius:999px; background:var(--panel); border:1px solid var(--line); font-family:var(--ui); font-weight:600; font-size:.98rem; box-shadow:0 1px 0 rgba(20,22,30,.02)}
+  .tokpill img{width:24px; height:24px; border-radius:50%}
+  .tokpill .cv{color:var(--faint); font-size:.8em}
+  .ghostval{color:var(--faint); font-size:.9rem; font-weight:450; white-space:nowrap}
+  .route{position:relative; height:0}
+  .switch{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:40px; height:40px; border-radius:50%; z-index:3; background:var(--panel); border:4px solid var(--panel); box-shadow:0 0 0 1px var(--line), 0 8px 18px -10px rgba(20,22,60,.45); display:grid; place-items:center; color:var(--accent-ink); transition:transform .25s ease}
+  .switch svg{width:17px; height:17px}
+  .switch:hover{transform:translate(-50%,-50%) rotate(180deg)}
+  .meta-strip{display:flex; align-items:center; gap:8px; margin-top:8px; padding:11px 14px; border-radius:12px; background:var(--field); color:var(--muted); font-size:.82rem}
+  .meta-strip svg{width:15px; height:15px; color:var(--accent-ink); flex:none}
+  .cta{display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:8px; min-height:52px; border-radius:14px; background:var(--ink); color:#fff; font-family:var(--ui); font-weight:600; font-size:1rem; box-shadow:0 14px 28px -16px rgba(20,22,30,.65); transition:transform .18s ease, filter .18s ease}
+  .cta:hover{transform:translateY(-1px); filter:brightness(1.1)}
+  .note{margin:11px 0 2px; text-align:center; color:var(--faint); font-size:.78rem}
+
+  /* how it works - horizontal connector */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; position:relative}
+  .steps::before{content:""; position:absolute; top:23px; left:15%; right:15%; height:1px; background:linear-gradient(90deg, transparent, var(--line), transparent)}
+  .step{text-align:center; padding:0 8px}
+  .step .node{width:46px; height:46px; margin:0 auto; border-radius:50%; display:grid; place-items:center; background:var(--panel); border:1px solid var(--line); color:var(--accent-ink); font-family:var(--ui); font-weight:700; font-size:1rem; position:relative; z-index:1; box-shadow:0 0 0 5px var(--bg), var(--shadow-soft)}
+  .step h3{margin:16px 0 8px; font-family:var(--ui); font-weight:600; font-size:1.1rem; color:var(--ink); letter-spacing:-.01em}
+  .step p{color:var(--muted); font-size:.93rem; line-height:1.55; max-width:30ch; margin:0 auto}
+
+  /* benefits */
+  .benefits{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .ben{padding:24px 22px; background:var(--panel); border:1px solid var(--line); border-radius:18px; box-shadow:var(--shadow-soft); text-align:center}
+  .ben .ico{width:44px; height:44px; border-radius:12px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent-ink); margin:0 auto 14px}
+  .ben .ico svg{width:21px; height:21px}
+  .ben h3{font-family:var(--ui); font-weight:600; font-size:1.1rem; color:var(--ink); letter-spacing:-.01em}
+  .ben p{margin-top:8px; color:var(--muted); font-size:.94rem; line-height:1.55}
+
+  /* FAQ - single centered column */
+  .faq{max-width:760px; margin:0 auto}
+  .qa{padding:22px 4px; border-top:1px solid var(--line)}
+  .qa:first-child{border-top:none}
+  .qa h3{font-family:var(--ui); font-weight:600; font-size:1.12rem; color:var(--ink); letter-spacing:-.01em; display:flex; gap:12px}
+  .qa h3 .qn{color:var(--accent-ink); font-size:.9rem; font-weight:700; padding-top:3px}
+  .qa p{margin-top:10px; padding-left:30px; color:var(--muted); font-size:.97rem; line-height:1.65}
+  .qa a:not(.cite){color:var(--accent-ink); font-weight:600}
+
+  /* related */
+  .related{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .rel{display:flex; flex-direction:column; gap:7px; padding:22px; background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow-soft); transition:transform .16s ease, border-color .16s ease}
+  .rel:hover{transform:translateY(-2px); border-color:rgba(247,147,26,.35)}
+  .rel .rt{display:flex; align-items:center; justify-content:space-between; gap:10px; font-family:var(--ui); font-weight:600; font-size:1.05rem; color:var(--ink); letter-spacing:-.01em}
+  .rel .rt svg{width:16px; height:16px; color:var(--accent-ink); flex:none}
+  .rel p{color:var(--muted); font-size:.9rem; line-height:1.5}
+
+  .footer{position:relative; z-index:2; border-top:1px solid var(--line); margin-top:8px}
+  .footer .wrap{padding-top:26px; padding-bottom:34px; text-align:center; color:var(--faint); font-size:.84rem}
+  .footer b{color:var(--muted); font-weight:600}
+
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--accent-soft)} 70%{box-shadow:0 0 0 8px rgba(247,147,26,0)} 100%{box-shadow:0 0 0 0 rgba(247,147,26,0)}}
+
+  @media (max-width:920px){
+    .nav{display:none}
+    .steps{grid-template-columns:1fr; gap:24px}
+    .steps::before{display:none}
+    .benefits,.related{grid-template-columns:1fr}
+  }
+  @media (max-width:430px){
+    .hero h1{font-size:clamp(2.6rem,13vw,3.6rem)}
+    .cta-row .primary,.cta-row .ghost{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important; transition-duration:.01ms!important}}
+  </style>
 </head>
 <body>
+  <div class="bg" aria-hidden="true"><div class="glow"></div><div class="grid"></div></div>
+
   <header class="topbar">
-    <a class="brand" href="." aria-label="BTC Bridge">
+    <a class="brand" href="./">
       <img src="favicon.png" width="30" height="30" alt="">
       <span>BTC Bridge</span>
     </a>
-    <nav class="nav" aria-label="Main Navigation">
-      <a href="how-it-works/" class="">How it works</a>
-      <a href="faq/" class="">FAQ</a>
-      <a href="about/" class="">About</a>
-      <a href="security/" class="">Security</a>
-      <a href="supported-chains/" class="">Supported Chains</a>
-    </nav>
     <span class="spacer"></span>
-    <a class="open-app" href="dashboard/" rel="noopener noreferrer">Open app</a>
+    <nav class="nav" aria-label="Main Navigation">
+      <a href="how-it-works/">How it works</a>
+      <a href="faq/">FAQ</a>
+      <a href="about/">About</a>
+      <a href="security/">Security</a>
+      <a href="supported-chains/">Supported Chains</a>
+    </nav>
   </header>
 
-  <main class="stage">
-    <section class="hero" aria-labelledby="page-title">
-      <h1 id="page-title">BTC Bridge</h1>
-      <p class="value"><strong>BTC Bridge</strong> helps you move Bitcoin to and from other chains as wrapped BTC from your own wallet.</p>
+  <main>
+    <!-- HERO (centered) -->
+    <section class="wrap hero">
+      <span class="eyebrow"><span class="dot"></span>Bitcoin Bridge</span>
+      <h1>BTC Bridge</h1>
+      <p class="deck">BTC Bridge is a <a class="cite" href="https://btc-bridge.github.io/" rel="nofollow noopener noreferrer">non-custodial bridge app</a> for turning Bitcoin liquidity into <strong>DeFi-ready WBTC</strong> without handing control of your wallet to a custodian.</p>
+      <div class="cta-row">
+        <a class="primary" href="dashboard/">Open App
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="ghost" href="how-it-works/">How it works
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="chips">
+        <li>BTC to WBTC</li>
+        <li>Non-custodial</li>
+        <li>Wallet-native</li>
+        <li>Live route preview</li>
+      </ul>
+
+      <section class="card" aria-label="BTC Bridge preview">
+        <div class="card-head">
+          <span class="ct">Bridge</span>
+          <span class="pill"><span class="pdot"></span>Preview</span>
+        </div>
+        <div class="field">
+          <span class="flabel">From</span>
+          <div class="frow">
+            <button class="tokpill" type="button"><img src="btc.png" alt="BTC">BTC <span class="cv" aria-hidden="true">&#9662;</span></button>
+            <span class="ghostval">Amount in app</span>
+          </div>
+        </div>
+        <div class="route">
+          <button class="switch" type="button" data-switch aria-label="Switch direction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="field">
+          <span class="flabel">To</span>
+          <div class="frow">
+            <button class="tokpill" type="button"><img src="wbtc.png" alt="WBTC">WBTC <span class="cv" aria-hidden="true">&#9662;</span></button>
+            <span class="ghostval">Live quote in app</span>
+          </div>
+        </div>
+        <div class="meta-strip">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 5v5l3 3"/></svg>
+          Route, network costs and timing are shown before you sign.
+        </div>
+        <a class="cta" href="dashboard/">Open App</a>
+        <p class="note">Preview only &middot; non-custodial &middot; connect your wallet in the app</p>
+      </section>
     </section>
 
-    <section class="app-card" aria-label="Bridge preview">
-      <div class="route">
-        <div class="leg">
-          <span class="label">From</span>
-          <span class="chip">
-            <img src="btc.png" width="28" height="28" alt="BTC">
-            <span>BTC</span>
-          </span>
+    <!-- HOW IT WORKS (connector) -->
+    <section class="wrap sec" id="how">
+      <div class="sec-head">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>How it works</span>
+        <h2 class="h2">BTC Bridge in three steps</h2>
+        <p>Move from native Bitcoin exposure to wrapped Bitcoin liquidity through a wallet-first flow built for DeFi access.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="node">1</div>
+          <h3>Connect your wallet</h3>
+          <p>Open the app and connect a <a class="cite" href="https://metamask.io/" rel="nofollow noopener noreferrer">Web3 wallet</a>. The flow is self-custody first: you review every action before signing.</p>
         </div>
-        <button class="switch" type="button" data-switch aria-label="Switch direction">
-          <span aria-hidden="true">-&gt;</span>
-        </button>
-        <div class="leg">
-          <span class="label">To</span>
-          <span class="chip">
-            <img src="wbtc.png" width="28" height="28" alt="WBTC">
-            <span>WBTC</span>
-          </span>
+        <div class="step">
+          <div class="node">2</div>
+          <h3>Pick BTC and WBTC</h3>
+          <p>Select <a class="cite" href="https://bitcoin.org/" rel="nofollow noopener noreferrer">Bitcoin</a> as the source asset and choose <a class="cite" href="https://wbtc.network/" rel="nofollow noopener noreferrer">Wrapped Bitcoin</a> as the destination asset for DeFi use.</p>
+        </div>
+        <div class="step">
+          <div class="node">3</div>
+          <h3>Review and confirm</h3>
+          <p>Check the live quote, destination chain, route timing and network costs, then confirm the transaction from your wallet.</p>
         </div>
       </div>
-      <a class="enter-app" href="dashboard/" rel="noopener noreferrer">Enter App</a>
-      <p class="note">Preview only</p>
+    </section>
+
+    <section class="wrap sec" id="why">
+      <div class="sec-head">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>Why bridge here</span>
+        <h2 class="h2">Bring BTC liquidity into DeFi</h2>
+        <p>BTC Bridge keeps the page focused on the outcome searchers want: move Bitcoin value into WBTC routes while seeing the tradeoffs before a wallet signature.</p>
+      </div>
+      <div class="benefits">
+        <div class="ben">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3>Self-custody flow</h3>
+          <p>You stay in control of approvals and signatures. The app shows the route before you commit from your wallet.</p>
+        </div>
+        <div class="ben">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span>
+          <h3>DeFi-ready assets</h3>
+          <p>Bridge from BTC to WBTC so Bitcoin liquidity can move into wallets, swaps, lending markets and other on-chain positions.</p>
+        </div>
+        <div class="ben">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 9 9 9 9 0 0 1-9 9"/><path d="M3 12h6l2-3 2 6 2-3h2"/></svg></span>
+          <h3>Transparent route preview</h3>
+          <p>See the route, destination chain, expected timing and <a class="cite" href="https://ethereum.org/bridges/" rel="nofollow noopener noreferrer">bridge mechanics</a> before you sign.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ (single column) -->
+    <section class="wrap sec" id="faq">
+      <div class="sec-head">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .8-1 1.7M12 17h.01"/></svg>FAQ</span>
+        <h2 class="h2">BTC Bridge questions</h2>
+      </div>
+      <div class="faq">
+        <div class="qa">
+          <h3><span class="qn">01</span>What is BTC Bridge?</h3>
+          <p>BTC Bridge is a non-custodial DeFi app for moving BTC exposure into WBTC routes. It helps you review the asset, chain, route and costs before you sign from your wallet.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">02</span>How does BTC Bridge work?</h3>
+          <p>You connect your wallet, choose BTC as the source asset, select WBTC as the destination asset, review the live route, then confirm the transaction from your wallet.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">03</span>Which chains and assets are supported?</h3>
+          <p>The core route is BTC to WBTC. Destination chains depend on live liquidity and supported wrapped Bitcoin markets in the app. See the full list on the <a href="supported-chains/">supported chains</a> page.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">04</span>How long does a BTC bridge transfer take?</h3>
+          <p>Timing depends on the selected route, wallet confirmations and network conditions. BTC Bridge shows the current estimate in the app before you confirm.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">05</span>What does BTC Bridge cost?</h3>
+          <p>Costs depend on the route and the networks involved. The app displays the live quote and network costs before you sign, so you can decide with current data.</p>
+        </div>
+        <div class="qa">
+          <h3><span class="qn">06</span>Is BTC Bridge safe to use?</h3>
+          <p>The safer habit is to verify the destination asset, destination chain and wallet prompt before every signature. BTC Bridge keeps the flow non-custodial, but all DeFi transactions still carry smart contract, bridge and market risk.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap sec" id="more">
+      <div class="sec-head">
+        <span class="eyebrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg>Learn more</span>
+        <h2 class="h2">Explore BTC Bridge</h2>
+      </div>
+      <div class="related">
+        <a class="rel" href="how-it-works/"><span class="rt">How it works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>The complete walkthrough for moving BTC into WBTC through the app.</p></a>
+        <a class="rel" href="security/"><span class="rt">Security <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>Wallet prompts, self-custody habits and bridge risk checks before signing.</p></a>
+        <a class="rel" href="supported-chains/"><span class="rt">Supported chains <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span><p>The networks and wrapped Bitcoin routes available inside the app.</p></a>
+      </div>
     </section>
   </main>
 
-  <footer class="footer">BTC Bridge &mdash; 2026</footer>
+  <footer class="footer">
+    <div class="wrap">
+      
+      <p style="margin-top:6px"><b>BTC Bridge</b></p>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"WebSite","@id":"https://btc-bridge.github.io/#website","url":"https://btc-bridge.github.io/","name":"BTC Bridge"},
+    {"@type":"Organization","@id":"https://btc-bridge.github.io/#org","name":"BTC Bridge","url":"https://btc-bridge.github.io/","logo":"https://btc-bridge.github.io/favicon.png"},
+    {"@type":"WebApplication","@id":"https://btc-bridge.github.io/#app","name":"BTC Bridge","applicationCategory":"FinanceApplication","operatingSystem":"Web","url":"https://btc-bridge.github.io/","browserRequirements":"Requires a Web3 wallet","description":"Non-custodial DeFi app for bridging BTC exposure into WBTC routes from a wallet-native interface."},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is BTC Bridge?","acceptedAnswer":{"@type":"Answer","text":"BTC Bridge is a non-custodial DeFi app for moving BTC exposure into WBTC routes. It helps you review the asset, chain, route and costs before you sign from your wallet."}},
+      {"@type":"Question","name":"How does BTC Bridge work?","acceptedAnswer":{"@type":"Answer","text":"You connect your wallet, choose BTC as the source asset, select WBTC as the destination asset, review the live route, then confirm the transaction from your wallet."}},
+      {"@type":"Question","name":"Which chains and assets are supported?","acceptedAnswer":{"@type":"Answer","text":"The core route is BTC to WBTC. Destination chains depend on live liquidity and supported wrapped Bitcoin markets in the app. See the full list on the supported chains page."}},
+      {"@type":"Question","name":"How long does a BTC bridge transfer take?","acceptedAnswer":{"@type":"Answer","text":"Timing depends on the selected route, wallet confirmations and network conditions. BTC Bridge shows the current estimate in the app before you confirm."}},
+      {"@type":"Question","name":"What does BTC Bridge cost?","acceptedAnswer":{"@type":"Answer","text":"Costs depend on the route and the networks involved. The app displays the live quote and network costs before you sign, so you can decide with current data."}},
+      {"@type":"Question","name":"Is BTC Bridge safe to use?","acceptedAnswer":{"@type":"Answer","text":"The safer habit is to verify the destination asset, destination chain and wallet prompt before every signature. BTC Bridge keeps the flow non-custodial, but all DeFi transactions still carry smart contract, bridge and market risk."}}
+    ]}
+  ]}
+  </script>
 
   <script>
-  (function () {
-    "use strict";
-
-    var button = document.querySelector("[data-switch]");
-    var chips = document.querySelectorAll(".chip");
-
-    if (!button || chips.length < 2) {
-      return;
-    }
-
-    button.addEventListener("click", function () {
-      var first = chips[0].innerHTML;
-      chips[0].innerHTML = chips[1].innerHTML;
-      chips[1].innerHTML = first;
-    });
-  }());
+  (function(){"use strict";var b=document.querySelector("[data-switch]");if(!b)return;b.addEventListener("click",function(){var p=document.querySelectorAll(".card .tokpill");if(p.length<2)return;var t=p[0].innerHTML;p[0].innerHTML=p[1].innerHTML;p[1].innerHTML=t;});}());
   </script>
 </body>
 </html>
