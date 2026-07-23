@@ -1,68 +1,31 @@
 # BTC Bridge
-> An independent, non-custodial informational dashboard for understanding routes that move native Bitcoin liquidity to other blockchains or return tokenized Bitcoin to Bitcoin.
 
-## What is BTC Bridge
-BTC Bridge explains and compares technologies that connect Bitcoin with smart-contract networks. These systems commonly lock BTC and issue a redeemable token such as WBTC or tBTC, although some protocols instead exchange native assets through cross-chain liquidity. The dashboard does not custody funds, mint tokens, or guarantee routes; execution and custody assumptions belong to the selected protocol. Unlike a centralized exchange, a bridge normally settles through public blockchain transactions without requiring an exchange account.
-
-## How it works
-1. Select native BTC as the source and choose a destination network and Bitcoin representation.
-2. Review the provider, receiving-token contract, exchange rate, fees, estimated confirmations, liquidity, and custody model.
-3. The selected protocol supplies a Bitcoin deposit address or initiates a native cross-chain swap.
-4. After the required Bitcoin confirmations, custodians, threshold signers, validators, or on-chain verification logic authorize delivery on the destination chain.
-5. A reverse route generally burns or transfers the token and releases BTC to the user-supplied Bitcoin address.
+> BTC Bridge tracks routes that move native Bitcoin to smart-contract networks and return tokenized Bitcoin to BTC, without custodying funds.
 
 ## Key facts
-- Bitcoin has no native, universal bridge standard; each bridge introduces its own verification and custody assumptions.
-- Lock-and-mint, burn-and-release, liquidity-network, and native cross-chain swap designs are materially different.
-- Ethereum Mainnet uses EIP-155 chain ID `1`; fungible Bitcoin representations there commonly implement ERC-20.
-- Ethereum WBTC uses contract `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599`.
-- Ethereum tBTC uses contract `0x18084fbA666a33D37592fA2633fD49a74DD93a88`.
-- WBTC minting and redemption rely on authorized merchants and institutional custodians.
-- tBTC secures deposited BTC through rotating signer groups and threshold cryptography under an honest-majority assumption.
-- A non-custodial interface preserves control of wallet keys but does not remove bridge, signer, custodian, contract, liquidity, or token risks.
-- Completion time depends on Bitcoin confirmations, destination finality, protocol processing, and congestion.
+- Route: source chain  destination chain
+- Deposit: typically minutes
+- Withdraw: may need proving/finalization
+- Gas: native asset on both chains
+- Custody: Non-custodial — your wallet signs
+- Verify: Use the official contracts; beware fake bridge sites
 
-## Common questions
-### Is BTC Bridge safe?
-Safety depends on the chosen route, not the dashboard alone. Verify the provider domain, token contract, audits, custody model, destination address, and current protocol status before signing.
-
-### Does the dashboard hold my BTC?
-No. Any deposit or token approval is handled by the selected external protocol and the user’s wallets.
-
-### What fees apply?
-Possible costs include Bitcoin miner fees, destination gas, protocol charges, liquidity-provider fees, and swap slippage.
-
-### How long does bridging take?
-Transfers may take minutes or longer because providers wait for Bitcoin confirmations and may batch, sweep, attest, mint, or release funds afterward.
-
-### Which assets and chains are supported?
-Support is provider-specific. Confirm the exact token contract and network inside the selected protocol immediately before transacting.
-
-### How do I start?
-Use a self-custody Bitcoin wallet, a compatible destination wallet, and enough native gas currency on any chain requiring a later transaction.
-
-### What are the main risks?
-Key risks are compromised frontends, incorrect addresses, contract exploits, signer collusion, custodian failure, insufficient liquidity, depegging, delayed redemption, and irreversible transactions.
+## On this page
+- [What is BTC Bridge?](https://btc-bridge.github.io/#what)
+- [How bridging works](https://btc-bridge.github.io/#how)
+- [Depositing to the destination](https://btc-bridge.github.io/#deposit)
+- [Withdrawing back](https://btc-bridge.github.io/#withdraw)
+- [Time and fees](https://btc-bridge.github.io/#fees)
+- [Is BTC Bridge safe?](https://btc-bridge.github.io/#safety)
+- [Problems and fixes](https://btc-bridge.github.io/#troubleshoot)
+- [FAQ](https://btc-bridge.github.io/#faq)
 
 ## App
-- Dashboard: https://btc-bridge.github.io/
-- App: https://btc-bridge.github.io/dashboard/
+- [BTC Bridge dashboard](https://btc-bridge.github.io/)
+- [Open the app](https://btc-bridge.github.io/dashboard/)
 
-## Official resources
-Ethereum Bridge Documentation: https://ethereum.org/developers/docs/bridges/
-WBTC Documentation: https://docs.wbtc.network/
-WBTC Proof of Reserves: https://docs.wbtc.network/overview/proof-of-reserve-and-transparency-dashboard
-Threshold tBTC Documentation: https://docs.threshold.network/tbtc-v2
-Threshold tBTC App: https://app.threshold.network/
-tBTC Source Code: https://github.com/threshold-network/tbtc-v2
-Threshold Security Audits: https://docs.threshold.network/resources/security-audits
-tBTC Contract Addresses: https://docs.threshold.network/contract-addresses/tbtc
-
-## Data & references
-Bitcoin Explorer: https://mempool.space/
-WBTC on Etherscan: https://etherscan.io/token/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599
-WBTC Market Data: https://www.coingecko.com/en/coins/wrapped-bitcoin
-Bitcoin Bridge Protocol Data: https://defillama.com/protocols/bridge/bitcoin
-Bridge Volume Data: https://defillama.com/bridges
-ERC-20 Standard: https://eips.ethereum.org/EIPS/eip-20
-L2BEAT Assets and Bridges Framework: https://forum.l2beat.com/t/assets-bridges-and-tvs/388
+## Sources
+- [ethereum.org](https://ethereum.org/bridges)
+- [chain.link](https://chain.link/article/bitcoin-btc-bridges-explained)
+- [github.com](https://github.com/threshold-network/tbtc-v2)
+- [defillama.com](https://defillama.com/bridges/bitcoin)
