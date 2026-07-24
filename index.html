@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BTC Bridge — Dashboard</title>
-  <meta name="description" content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#f5f6f8">
-  <link rel="canonical" href="https://btc-bridge.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="image_src" href="og-cover.png">
-  <link rel="preconnect" href="https://api.coingecko.com" crossorigin>
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>BTC Bridge — Dashboard</title>
+<meta content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks." name="description"/>
+<meta content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" name="robots"/>
+<meta content="#f5f6f8" name="theme-color"/>
+<link href="https://btc-bridge.github.io/" rel="canonical"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon"/>
+<link href="manifest.webmanifest" rel="manifest"/>
+<link href="og-cover.png" rel="image_src"/>
+<link crossorigin="" href="https://api.coingecko.com" rel="preconnect"/>
+<style>
 /* BTC Bridge — independent single-page hub. */
 :root {
   color-scheme: light;
@@ -112,7 +113,7 @@ html:not(.js) .menu-btn { display: none; }
 
 /* ───────── main / topbar ───────── */
 .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-.topbar { position: sticky; top: 0; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 11px 26px; border-bottom: 1px solid var(--line); background: rgba(255, 255, 255, 0.82); backdrop-filter: blur(10px); }
+.topbar { position: relative; z-index: 40; flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; padding: 21px 26px; border-bottom: 0; background: transparent; }
 .topbar-right { display: flex; align-items: center; gap: 10px 18px; flex-wrap: wrap; }
 .mode-switch { display: inline-flex; align-items: center; gap: 10px; }
 .ms-label { font-size: 13.5px; font-weight: 700; color: var(--muted); transition: color 150ms var(--ease); }
@@ -176,6 +177,44 @@ html:not(.js) .menu-btn { display: none; }
 .content .lead-in { padding: clamp(4px, 1vh, 12px) 0 clamp(10px, 2.5vh, 22px); }
 .content .lead-in > p { margin: 0 0 16px; font-size: 15px; line-height: 1.66; color: var(--text); }
 .content .lead-in > p strong { color: var(--ink); font-weight: 700; }
+/* premium feature card (modern-site feel) */
+.content .lead-in .feat{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:1.08fr .92fr;align-items:stretch;background:linear-gradient(165deg,#141824,#0b0e15);border:1px solid rgba(255,255,255,.09);border-radius:28px;overflow:hidden;box-shadow:0 52px 120px -55px rgba(0,0,0,.82)}
+.feat-l{padding:clamp(32px,4vw,64px);display:flex;flex-direction:column;justify-content:center}
+.feat-l h2{margin:0;font-size:clamp(2.2rem,4.6vw,3.2rem);line-height:1.03;font-weight:800;letter-spacing:-.03em;color:#fff}
+.feat-lead{margin:20px 0 0;font-size:17px;line-height:1.6;color:rgba(255,255,255,.9);max-width:48ch}
+.content .lead-in .feat-lead a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.content .lead-in .feat-lead a:hover{text-decoration-color:#fff}
+.feat-cta{margin:32px 0 0}
+.content .lead-in .feat-btn{display:inline-flex;align-items:center;gap:10px;padding:17px 38px;border-radius:999px;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 50%,#7c4dff));color:#fff;font-weight:750;font-size:16.5px;text-decoration:none;box-shadow:0 20px 44px -12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease)}
+.content .lead-in .feat-btn:hover{transform:translateY(-2px);box-shadow:0 26px 56px -14px var(--accent-glow)}
+.feat-btn .arr{transition:transform .18s var(--ease)}
+.content .lead-in .feat-btn:hover .arr{transform:translateX(3px)}
+.feat-more{margin:18px 0 0}
+.feat-readmore{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;color:rgba(255,255,255,.7);transition:color .15s var(--ease)}
+.feat-readmore::-webkit-details-marker{display:none}
+.feat-readmore:hover{color:#fff}
+.feat-readmore .chev{width:15px;height:15px;transition:transform .2s var(--ease)}
+.feat-more[open] .feat-readmore .chev{transform:rotate(180deg)}
+.feat-detail{margin:20px 0 0;font-size:14.5px;line-height:1.72;color:rgba(255,255,255,.82)}
+.content .lead-in .feat-detail a{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.55);text-underline-offset:3px}
+.feat-more:not([open]) .feat-detail{display:none}
+.content .lead-in .feat-lead{color:rgba(255,255,255,.9)}
+.content .lead-in .feat-detail,.content .lead-in .feat-detail p{color:rgba(255,255,255,.82)}
+.feat-facts{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;margin:18px 0 2px}
+.feat-fact{padding:10px 0;border-top:1px solid rgba(255,255,255,.1)}
+.feat-fact .fl{display:block;font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 3px}
+.feat-fact .fv{display:block;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.88)}
+.feat-r{position:relative;overflow:hidden;min-height:clamp(300px,32vw,440px);background:radial-gradient(120% 105% at 70% 22%,color-mix(in srgb,var(--accent) 52%,#1a1030),#0a0d14 70%)}
+.feat-r::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%);mask:radial-gradient(70% 72% at 64% 36%,#000,transparent 76%)}
+.feat-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;width:clamp(122px,16vw,166px);height:clamp(122px,16vw,166px);border-radius:34px;display:grid;place-items:center;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.02));box-shadow:0 38px 84px -22px var(--accent-glow),inset 0 0 0 1px rgba(255,255,255,.18)}
+.feat-badge img{width:52%;height:52%;object-fit:contain}
+@media (max-width:860px){
+  .content .lead-in .feat{width:calc(100vw - 28px);grid-template-columns:1fr}
+  .feat-l{padding:30px 22px 32px}
+  .feat-r{min-height:200px}
+  .feat-facts{grid-template-columns:1fr}
+}
+
 .tbl.spec table { min-width: 0; }
 .tbl.spec td:first-child { color: var(--muted); font-weight: 600; white-space: nowrap; width: 1%; }
 .content .sec { border-top: 1px solid var(--line); scroll-margin-top: 66px; }
@@ -381,168 +420,190 @@ html.js .reveal.in { opacity: 1; transform: none; }
 .mnote { text-align: center; font-size: 11px; color: var(--muted); margin: 12px 2px 0; line-height: 1.5; }
 .mnote a { color: var(--accent-2); font-weight: 600; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) { .scrollcue2 svg, .mspin { animation: none; } .mbar i { transition: none; } }
+/* docs layout (sticky TOC + open sections) */
+.docs{position:relative;width:min(1120px,calc(100vw - 44px));margin-left:50%;transform:translateX(-50%);display:grid;grid-template-columns:236px minmax(0,1fr);gap:clamp(28px,4vw,60px);margin-top:clamp(40px,6vh,72px);align-items:start}
+.toc{position:sticky;top:74px;align-self:start;max-height:calc(100dvh - 96px);overflow:auto}
+.toc-h{margin:0 0 10px;font-size:10.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);padding-left:13px}
+.toc a{display:block;padding:7px 13px;border-left:2px solid var(--line);color:var(--muted);font-size:13px;font-weight:600;line-height:1.35;text-decoration:none;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.toc a:hover{color:var(--ink)}
+.toc a.active{color:var(--accent-2);border-left-color:var(--accent);font-weight:750}
+.doc-main{min-width:0}
+.content .doc-sec{border:1px solid var(--line);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:0;scroll-margin-top:82px;transition:box-shadow .26s var(--ease),border-color .26s var(--ease)}
+.content .doc-sec:first-child{border-top:1px solid var(--line)}
+.content .doc-sec:hover{border-color:var(--line-2);box-shadow:0 16px 40px -22px rgba(17,24,39,.18)}
+.content .doc-sec[open]{border-color:var(--line)}
+.content .doc-sec>summary{cursor:default;pointer-events:none;padding:clamp(20px,3vh,28px) clamp(22px,3.2vw,32px) 8px;list-style:none}
+.content .doc-sec>summary::-webkit-details-marker{display:none}
+.content .doc-sec>summary::after{display:none}
+.content .doc-sec>summary h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec .sec-body{padding:0 clamp(22px,3.2vw,32px) clamp(22px,3.4vh,30px);max-width:74ch}
+.content .doc-sec.field-notes{border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:20px;background:var(--panel);box-shadow:0 1px 3px rgba(17,24,39,.04);margin:0 0 16px;padding:clamp(22px,3vh,28px) clamp(22px,3.2vw,32px)}
+.content .doc-sec.field-notes h2{font-size:clamp(1.2rem,2.3vw,1.5rem)}
+.content .doc-sec.field-notes .fn-body{max-width:74ch}
+@media (max-width:900px){
+  .docs{grid-template-columns:1fr;width:calc(100vw - 28px);gap:0}
+  .toc{position:sticky;top:56px;z-index:20;display:flex;gap:8px;overflow-x:auto;max-height:none;background:var(--bg);padding:11px 2px;margin:0 0 6px;border-bottom:1px solid var(--line);-webkit-overflow-scrolling:touch}
+  .toc-h{display:none}
+  .toc a{flex:0 0 auto;white-space:nowrap;border-left:0;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:12.5px}
+  .toc a.active{color:var(--accent-2);border-color:var(--accent);background:var(--accent-soft)}
+}
+.site-foot{width:min(1120px,calc(100vw - 44px));margin:clamp(34px,5vh,60px) auto 0;padding:22px 2px clamp(30px,4vh,48px);color:var(--faint);font-size:12.5px;line-height:1.6}
+.site-foot p{margin:0 0 6px;max-width:82ch}
+.site-foot strong{color:var(--muted);font-weight:700}
+.site-foot .foot-fine{font-size:11.5px}
   </style>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://btc-bridge.github.io/">
-  <meta property="og:title" content="BTC Bridge — Dashboard">
-  <meta property="og:description" content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks.">
-  <meta property="og:site_name" content="BTC Bridge"><meta property="og:image" content="https://btc-bridge.github.io/og-cover.png">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="BTC Bridge — independent dashboard">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="BTC Bridge — Dashboard">
-  <meta name="twitter:description" content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks."><meta name="twitter:image" content="https://btc-bridge.github.io/og-cover.png">
-  <script type="application/ld+json">
+<meta content="website" property="og:type"/><meta content="https://btc-bridge.github.io/" property="og:url"/>
+<meta content="BTC Bridge — Dashboard" property="og:title"/>
+<meta content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks." property="og:description"/>
+<meta content="BTC Bridge" property="og:site_name"/><meta content="https://btc-bridge.github.io/og-cover.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/><meta content="630" property="og:image:height"/><meta content="BTC Bridge — independent dashboard" property="og:image:alt"/>
+<meta content="summary_large_image" name="twitter:card"/><meta content="BTC Bridge — Dashboard" name="twitter:title"/>
+<meta content="BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks." name="twitter:description"/><meta content="https://btc-bridge.github.io/og-cover.png" name="twitter:image"/>
+<script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://btc-bridge.github.io/#website", "url": "https://btc-bridge.github.io/", "name": "BTC Bridge", "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://btc-bridge.github.io/#brand", "name": "BTC bridge", "alternateName": ["BTC Bridge", "BTC"], "description": "Cross-chain bridge routes for moving assets to and from BTC, via native or third-party bridges.", "sameAs": ["https://ethereum.org/bridges", "https://github.com/threshold-network/tbtc-v2", "https://docs.threshold.network/app-development/tbtc-v2/tbtc-contracts-api/tbtc-v2-api/bridge", "https://docs.stacks.co/learn/sbtc/sbtc-operations/deposit", "https://docs.threshold.network/app-development/tbtc-v2/tbtc-sdk/guides/unmint-and-redeem"], "applicationCategory": "FinanceApplication", "operatingSystem": "Web"}, {"@type": "WebPage", "@id": "https://btc-bridge.github.io/#webpage", "url": "https://btc-bridge.github.io/", "name": "BTC Bridge — Dashboard", "description": "BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks.", "isPartOf": {"@id": "https://btc-bridge.github.io/#website"}, "about": {"@id": "https://btc-bridge.github.io/#brand"}, "mainEntity": {"@id": "https://btc-bridge.github.io/#brand"}, "inLanguage": "en", "dateModified": "2026-07-21"}, {"@type": "FAQPage", "@id": "https://btc-bridge.github.io/#faq", "mainEntity": [{"@type": "Question", "name": "Is this the official BTC Bridge site?", "acceptedAnswer": {"@type": "Answer", "text": "No. This is an independent, non-custodial informational dashboard; it does not custody funds, mint tokens or guarantee routes, and execution belongs to the protocol you choose."}}, {"@type": "Question", "name": "How long does bridging BTC take?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on Bitcoin confirmations, destination finality, protocol processing and congestion, so deposit and withdrawal can have different waits. Treat any displayed estimate as route-specific, not universal."}}, {"@type": "Question", "name": "How do I bridge BTC to another network?", "acceptedAnswer": {"@type": "Answer", "text": "Choose native BTC as the source, pick the destination network and token, review provider, contract, rate, fees and custody, then send to the supplied Bitcoin address or start the native swap. Verify the receiving token contract before considering the transfer complete."}}, {"@type": "Question", "name": "Do I need the destination gas asset?", "acceptedAnswer": {"@type": "Answer", "text": "Usually yes for meaningful use after arrival, because ERC-20 transfers, swaps and withdrawals need the destination chain's native gas asset. Keep gas on both sides: BTC for the source transaction and the destination asset for later transactions."}}, {"@type": "Question", "name": "Is bridging BTC safe?", "acceptedAnswer": {"@type": "Answer", "text": "It is route-dependent: verify domain, contract, audits, custody model, destination address and current protocol status before signing. Smart-contract, approval, routing, cross-chain and phishing risks remain even when code is audited or open-source."}}, {"@type": "Question", "name": "Native route versus third-party bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Native-style swaps exchange assets through cross-chain liquidity or protocol logic, while lock-and-mint routes issue a redeemable representation such as WBTC or tBTC. The real choice is the trust model: custodian/merchant, threshold signers, validators, liquidity network or verification contract."}}]}]}
   </script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <div class="shell">
-    <main class="main" id="main">
-      <header class="topbar">
-        <div class="topbar-left">
-          <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-controls="sideNav" aria-expanded="false" data-nav-open><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-          <a class="topbar-logo" href="./" aria-label="BTC Bridge home"><img src="favicon.png" width="20" height="20" alt="BTC Bridge logo"></a>
-          <h1 class="wordmark">BTC Bridge</h1>
-        </div>
-        <div class="topbar-right">
-          <div class="ticker" aria-label="Live metrics">
-            <a class="tick" href="https://defillama.com/chain/bitcoin" target="_blank" rel="noopener noreferrer" aria-label="Bitcoin TVL"><span>Bitcoin TVL</span> <b id="sig-ctvl">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/bitcoin" target="_blank" rel="noopener noreferrer" aria-label="BTC"><span>BTC</span> <b id="sig-bitcoin">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            <a class="tick" href="https://www.coingecko.com/en/coins/ethereum" target="_blank" rel="noopener noreferrer" aria-label="ETH"><span>ETH</span> <b id="sig-ethereum">…</b> <span class="ext" aria-hidden="true">↗</span></a>
-            </div>
-        </div>
-      </header>
-
-            <section class="hero2">
-        <div class="hero2-l">
-          <h2 class="hero2-h">Move BTC between networks</h2>
-          <p class="hero2-lead"><strong>BTC Bridge</strong> tracks routes that move native Bitcoin to smart-contract networks and return tokenized Bitcoin to BTC, without custodying funds.</p>
-          <div class="hero2-cta">
-            <a class="btn2 btn2-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Open the BTC Bridge <span class="go" aria-hidden="true">↗</span></a>
-            <a class="btn2 btn2-ghost" href="#what">How it works</a>
-          </div>
-        </div>
-        <div class="hero2-r">
-        <section class="swap-card" id="swap-preview" aria-labelledby="preview-title">
-          <div class="card-head">
-            <p class="card-title" id="preview-title">Preview</p>
-            <span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
-          </div>
-          <div class="leg">
-            <span class="asset" id="asset-from"><span class="tok"><img src="wbtc.png" alt="WBTC token" width="24" height="24" loading="lazy" decoding="async"></span><b>WBTC</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <button class="swap-arrow" id="route-swap" type="button" aria-label="Swap preview direction" title="Swap preview direction">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"/></svg>
-          </button>
-          <div class="leg">
-            <span class="asset" id="asset-to"><span class="tok"><img src="btc.png" alt="BTC token" width="24" height="24" loading="lazy" decoding="async"></span><b>BTC</b><svg class="chev-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-            <span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
-          </div>
-          <div class="route-panel">
-            <div class="route-info"><b id="route-name">WBTC → BTC</b><span>Non-custodial bridge route</span></div>
-            <div class="route-tok"><span class="tok sm"><img src="btc.png" alt="BTC token" width="18" height="18" loading="lazy" decoding="async"></span> BTC</div>
-          </div>
-          <div class="route-row"><span>Type</span><b>Bridge route</b></div>
-          <div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
-          <a class="swap-cta" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"/></svg>Go to Swap<span class="cta-go" aria-hidden="true">→</span></a>
-        </section>
-        </div>
-        <a class="scrollcue2" href="#what" aria-label="Scroll to learn more"><span>Scroll</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 5v14M12 19l-6-6M12 19l6-6"/></svg></a>
-      </section>
-
-            <div class="content">
-        <div class="lead-in reveal">
-          <p>A BTC bridge is not one standard: it is a route that locks BTC or swaps natively so value can appear on another chain, then later return. In practice you are choosing a custody and verification model—lock-and-mint into ERC-20, threshold-signed tBTC, or a liquidity/native swap—then checking contracts before you sign. This is an independent dashboard, not the operator; compare routes against general <a href='https://ethereum.org/bridges'>bridge mechanics</a> and confirm execution in your own wallet.</p>
-          <div class="tbl spec"><table><tbody><tr><td>Route</td><td>source chain <-> destination chain</td></tr><tr><td>Deposit</td><td>typically minutes</td></tr><tr><td>Withdraw</td><td>may need proving/finalization</td></tr><tr><td>Gas</td><td>native asset on both chains</td></tr><tr><td>Custody</td><td>Non-custodial — your wallet signs</td></tr><tr><td>Verify</td><td>Use the official contracts; beware fake bridge sites</td></tr></tbody></table></div>
-        </div>
-
-        <details id="what" class="sec reveal">
-          <summary><h2>What is BTC Bridge?</h2></summary>
-          <div class="sec-body">There is no native, universal Bitcoin bridge, so each route adds its own verification and custody assumptions. The main families are lock-and-mint, burn-and-release, liquidity-network and native cross-chain swap designs; <a href='https://chain.link/article/bitcoin-btc-bridges-explained'>Bitcoin bridge designs</a> differ mainly in who or what proves the BTC deposit. On Ethereum Mainnet, chain ID 1, fungible Bitcoin representations are commonly ERC-20; WBTC is 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599 and tBTC is 0x18084fbA666a33D37592fA2633fD49a74DD93a88.</div>
-        </details>
-
-        <details id="how" class="sec reveal">
-          <summary><h2>How bridging works</h2></summary>
-          <div class="sec-body">Most routes either lock BTC and mint a representation, burn or transfer that representation to release BTC back, or swap through liquidity/native cross-chain execution. Your wallet signs approvals and transactions, but delivery is authorized by custodians, threshold signers, validators or on-chain verification logic depending on the route. tBTC is the threshold-cryptography model: rotating signer groups secure deposited BTC under an honest-majority assumption, with the implementation public in the <a href='https://github.com/threshold-network/tbtc-v2'>tBTC v2 repository</a>.</div>
-        </details>
-
-        <details id="deposit" class="sec reveal">
-          <summary><h2>Depositing to the destination</h2></summary>
-          <div class="sec-body">Deposit by selecting native BTC as source, choosing the destination network and Bitcoin representation, then reviewing provider, receiving-token contract, rate, fees, confirmations, liquidity and custody model. The protocol gives a Bitcoin deposit address or starts a native swap; after required Bitcoin confirmations, destination delivery still depends on finality, protocol processing and congestion. Keep BTC for the source transaction and the destination gas asset ready before you start.</div>
-        </details>
-
-        <details id="withdraw" class="sec reveal">
-          <summary><h2>Withdrawing back</h2></summary>
-          <div class="sec-body">Withdrawing usually burns or transfers the tokenized Bitcoin and releases BTC to the Bitcoin address you supply. Expect a finalization, proving or challenge step on some routes; do not duplicate the transaction just because it is pending, and confirm the receiving Bitcoin address format before signing. A non-custodial interface keeps keys with you, but signer, custodian, contract, liquidity and token risks still remain.</div>
-        </details>
-
-        <details id="fees" class="sec reveal">
-          <summary><h2>Time and fees</h2></summary>
-          <div class="sec-body">Costs come in layers: Bitcoin network fee, destination-chain gas, any provider service fee or spread, and mint/redeem logic where applicable. Time is not a single number because Bitcoin confirmations, destination finality, protocol processing and congestion stack together. Judge the quote screen before signing: received amount, exchange rate, fees, estimated confirmations and the exact token contract matter more than a route name.</div>
-        </details>
-
-        <details id="safety" class="sec reveal">
-          <summary><h2>Is BTC Bridge safe?</h2></summary>
-          <div class="sec-body">Safety depends on the chosen route, not on the dashboard alone. Verify the provider domain, token contract, audits, custody model, destination address and current protocol status before signing; audited or open-source code reduces some risk but never makes a bridge risk-free. WBTC relies on authorized merchants and institutional custodians, whose transparency posture is published at <a href='https://wbtc.network/transparency'>WBTC transparency</a>, while tBTC shifts trust toward threshold signer groups and contract risk.</div>
-        </details>
-
-        <details id="troubleshoot" class="sec reveal">
-          <summary><h2>Problems and fixes</h2></summary>
-          <div class="sec-body">Most failures are process errors: wrong destination network, no destination gas, a pending Bitcoin confirmation, or a fake bridge site. If the destination token is missing, check whether you received the expected ERC-20 contract rather than assuming funds are gone; if stuck, gather transaction hashes from both chains before contacting anyone. Never re-enter seed phrases to unlock a transfer, and treat unsolicited support DMs as phishing until proven otherwise.</div>
-        </details>
-
-        <details id="faq" class="sec reveal">
-          <summary><h2>BTC FAQ</h2></summary>
-          <div class="sec-body">
-          <details class="qa"><summary>Is this the official BTC Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial informational dashboard; it does not custody funds, mint tokens or guarantee routes, and execution belongs to the protocol you choose.</p></div></details>
-          <details class="qa"><summary>How long does bridging BTC take?</summary><div class="a"><p>It depends on Bitcoin confirmations, destination finality, protocol processing and congestion, so deposit and withdrawal can have different waits. Treat any displayed estimate as route-specific, not universal.</p></div></details>
-          <details class="qa"><summary>How do I bridge BTC to another network?</summary><div class="a"><p>Choose native BTC as the source, pick the destination network and token, review provider, contract, rate, fees and custody, then send to the supplied Bitcoin address or start the native swap. Verify the receiving token contract before considering the transfer complete.</p></div></details>
-          <details class="qa"><summary>Do I need the destination gas asset?</summary><div class="a"><p>Usually yes for meaningful use after arrival, because ERC-20 transfers, swaps and withdrawals need the destination chain's native gas asset. Keep gas on both sides: BTC for the source transaction and the destination asset for later transactions.</p></div></details>
-          <details class="qa"><summary>Is bridging BTC safe?</summary><div class="a"><p>It is route-dependent: verify domain, contract, audits, custody model, destination address and current protocol status before signing. Smart-contract, approval, routing, cross-chain and phishing risks remain even when code is audited or open-source.</p></div></details>
-          <details class="qa"><summary>Native route versus third-party bridge?</summary><div class="a"><p>Native-style swaps exchange assets through cross-chain liquidity or protocol logic, while lock-and-mint routes issue a redeemable representation such as WBTC or tBTC. The real choice is the trust model: custodian/merchant, threshold signers, validators, liquidity network or verification contract.</p></div></details>
-          </div>
-        </details>
-
-        <section class="field-notes reveal" id="notes">
-          <h2>Notes before you use BTC Bridge</h2>
-          <div class="fn-body"><strong>Bridge the route, not the ticker.</strong> The common mistake is sending BTC to the first polished interface without checking who custodies or verifies the deposit and which token you will actually receive. <strong>Before you sign</strong><ul><li>Confirm the bridge site, provider domain and receiving-token contract match the route you intended.</li><li>Check source and destination networks, Bitcoin address format, and keep gas available on both chains.</li><li>Understand the withdrawal wait: burn/release, proving, challenge or finality can delay the return leg.</li></ul>I re-check contract addresses and route status against primary documentation before publishing, last reviewed 21 July 2026. <strong>Independent reference — confirm the route in your own wallet.</strong></div>
-        </section>
-      </div>
-    </main>
-    <aside class="sidebar">
-      <div class="side-top">
-        <div class="brand">
-          <a class="brand-logo" href="./" aria-label="BTC Bridge home"><img src="favicon.png" width="30" height="30" alt="BTC Bridge logo"></a>
-          <p class="brand-name">BTC</p>
-        </div>
-        <button class="nav-toggle" type="button" aria-label="Close navigation menu" aria-controls="sideNav" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      </div>
-
-      <nav class="side-nav" id="sideNav" aria-label="Primary">
-        <p class="nav-label">Bridge</p>
-        <a class="nav-item is-active" href="#swap-preview" aria-current="true">
-          <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>
-          Bridge preview
-        </a>
-        <p class="nav-label">On this page</p>
-        <details class="nav-group">
-          <summary>
-            <svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>
-            Guide sections
-            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-          </summary>
-          <div class="nav-sub"><a href="#what">What is BTC Bridge?</a><a href="#how">How bridging works</a><a href="#deposit">Depositing to the destination</a><a href="#withdraw">Withdrawing back</a><a href="#fees">Time and fees</a><a href="#safety">Is BTC Bridge safe?</a><a href="#troubleshoot">Problems and fixes</a><a href="#faq">FAQ</a></div>
-        </details>
-      </nav>
-
-      <div class="sidebar-foot">
-        <p class="disclose"><strong>Independent</strong> BTC Bridge information dashboard. Not affiliated with any official product.</p>
-        <p class="fine">Live metrics are compiled from public APIs. Review your route in the official app before signing.</p>
-        <p class="fine">© 2026 BTC Bridge dashboard.</p>
-      </div>
-    </aside>
-    <div class="scrim" data-scrim></div>
-  </div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<main class="main" id="main">
+<header class="topbar">
+<div class="topbar-left">
+<h1 class="wordmark">BTC Bridge</h1>
+</div>
+<div class="topbar-right">
+<div aria-label="Live metrics" class="ticker">
+<a aria-label="Bitcoin TVL" class="tick" href="https://defillama.com/chain/bitcoin" rel="noopener noreferrer" target="_blank"><span>Bitcoin TVL</span> <b id="sig-ctvl">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="BTC" class="tick" href="https://coinmarketcap.com/currencies/bitcoin/" rel="noopener noreferrer" target="_blank"><span>BTC</span> <b id="sig-bitcoin">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+<a aria-label="ETH" class="tick" href="https://defillama.com/" rel="noopener noreferrer" target="_blank"><span>ETH</span> <b id="sig-ethereum">…</b> <span aria-hidden="true" class="ext">↗</span></a>
+</div>
+</div>
+</header>
+<section class="hero2">
+<div class="hero2-l">
+<h2 class="hero2-h">Move BTC between networks</h2>
+<p class="hero2-lead"><strong>BTC Bridge</strong> tracks routes that move native Bitcoin to smart-contract networks and return tokenized Bitcoin to BTC, without custodying funds.</p>
+<div class="hero2-cta">
+<a class="btn2 btn2-primary" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the BTC Bridge <span aria-hidden="true" class="go">↗</span></a>
+<a class="btn2 btn2-ghost" href="#what">How it works</a>
+</div>
+</div>
+<div class="hero2-r">
+<section aria-labelledby="preview-title" class="swap-card" id="swap-preview">
+<div class="card-head">
+<p class="card-title" id="preview-title">Preview</p>
+<span class="preview-tag"><span aria-hidden="true"></span>Preview only</span>
+</div>
+<div class="leg">
+<span class="asset" id="asset-from"><span class="tok"><img alt="WBTC token" decoding="async" height="24" loading="lazy" src="wbtc.png" width="24"/></span><b>WBTC</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<button aria-label="Swap preview direction" class="swap-arrow" id="route-swap" title="Swap preview direction" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M8 4v13M8 4L4 8M8 4l4 4M16 20V7M16 20l-4-4M16 20l4-4"></path></svg>
+</button>
+<div class="leg">
+<span class="asset" id="asset-to"><span class="tok"><img alt="BTC token" decoding="async" height="24" loading="lazy" src="btc.png" width="24"/></span><b>BTC</b><svg aria-hidden="true" class="chev-sm" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span>
+<span class="leg-amt"><span class="amount">0.00</span><span class="leg-sub">Preview</span></span>
+</div>
+<div class="route-panel">
+<div class="route-info"><b id="route-name">WBTC → BTC</b><span>Non-custodial bridge route</span></div>
+<div class="route-tok"><span class="tok sm"><img alt="BTC token" decoding="async" height="18" loading="lazy" src="btc.png" width="18"/></span> BTC</div>
+</div>
+<div class="route-row"><span>Type</span><b>Bridge route</b></div>
+<div class="route-row"><span>Custody</span><b>Non-custodial</b></div>
+<a class="swap-cta" href="dashboard/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" class="cta-ico" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4"></path></svg>Go to Swap<span aria-hidden="true" class="cta-go">→</span></a>
+</section>
+</div>
+<a aria-label="Scroll to learn more" class="scrollcue2" href="#what"><span>Scroll</span><svg fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M12 5v14M12 19l-6-6M12 19l6-6"></path></svg></a>
+</section>
+<div class="content">
+<div class="lead-in reveal">
+<div class="feat">
+<div class="feat-l">
+<h2>Btc Bridge Protocol Architecture &amp; Route Overview</h2>
+<p class="feat-lead">A BTC bridge is not one standard: it is a route that locks BTC or swaps natively so value can appear on another chain, then later return.</p>
+<div class="feat-cta"><a class="feat-btn" href="dashboard/" rel="noopener noreferrer" target="_blank">Open the App <span aria-hidden="true" class="arr">→</span></a></div>
+<details class="feat-more">
+<summary class="feat-readmore">Read more <svg aria-hidden="true" class="chev" fill="none" stroke="currentColor" stroke-width="2.2" viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></summary>
+<div class="feat-detail">
+<p>In practice you are choosing a custody and verification model—lock-and-mint into ERC-20, threshold-signed tBTC, or a liquidity/native swap—then checking contracts before you sign. This is an independent dashboard, not the operator; compare routes against general <a href="https://ethereum.org/bridges">bridge mechanics</a> and confirm execution in your own wallet.</p>
+<div class="feat-facts">
+<div class="feat-fact"><span class="fl">Route</span><span class="fv">source chain &lt;-&gt; destination chain</span></div>
+<div class="feat-fact"><span class="fl">Deposit</span><span class="fv">typically minutes</span></div>
+<div class="feat-fact"><span class="fl">Withdraw</span><span class="fv">may need proving/finalization</span></div>
+<div class="feat-fact"><span class="fl">Gas</span><span class="fv">native asset on both chains</span></div>
+<div class="feat-fact"><span class="fl">Custody</span><span class="fv">Non-custodial — your wallet signs</span></div>
+<div class="feat-fact"><span class="fl">Verify</span><span class="fv">Use the official contracts; beware fake bridge sites</span></div>
+</div>
+</div>
+</details>
+</div>
+<div class="feat-r"><span class="feat-badge"><img alt="BTC Bridge" height="72" src="btc.png" width="72"/></span></div>
+</div>
+</div>
+<div class="docs">
+<nav aria-label="On this page" class="toc">
+<p class="toc-h">On this page</p>
+<a href="#what">What is Btc Bridge?</a>
+<a href="#how">How bridging works</a>
+<a href="#deposit">Depositing to the destination</a>
+<a href="#withdraw">Withdrawing back</a>
+<a href="#fees">Time and fees</a>
+<a href="#safety">Is BTC Bridge safe?</a>
+<a href="#troubleshoot">Problems and fixes</a>
+<a href="#faq">BTC FAQ</a>
+<a href="#notes">Notes before you use BTC Bridge</a>
+</nav>
+<div class="doc-main">
+<details class="sec reveal doc-sec" id="what" open="">
+<summary><h2>What is Btc Bridge?</h2></summary>
+<div class="sec-body">BTC Bridge is a route for moving BTC value to another chain, not one universal protocol: the route may lock-and-mint, burn-and-release, use a liquidity network or execute a native cross-chain swap. <a href="https://chain.link/article/bitcoin-btc-bridges-explained" rel="noopener noreferrer" target="_blank">Bitcoin bridge designs</a> differ mainly in who or what proves the BTC deposit. On Ethereum Mainnet, chain ID 1, fungible Bitcoin representations are commonly ERC-20; the <a href="https://docs.openzeppelin.com/contracts/4.x/api/token/erc20" rel="noopener noreferrer" target="_blank">ERC-20 interface</a> standardizes functions such as transfer, approve and transferFrom. WBTC is 0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599 and tBTC is 0x18084fbA666a33D37592fA2633fD49a74DD93a88.</div>
+</details>
+<details class="sec reveal doc-sec" id="how" open="">
+<summary><h2>How bridging works</h2></summary>
+<div class="sec-body">BTC bridging works by locking BTC and minting a representation, burning or transferring that representation to release BTC back, or swapping through liquidity/native cross-chain execution. Your wallet signs approvals and transactions, while delivery is authorized by custodians, threshold signers, validators or on-chain verification logic depending on the route. tBTC is the threshold-cryptography model: rotating signer groups secure deposited BTC under an honest-majority assumption, with the implementation public in the <a href="https://github.com/threshold-network/tbtc-v2" rel="noopener noreferrer" target="_blank">tBTC v2 repository</a>.</div>
+</details>
+<details class="sec reveal doc-sec" id="deposit" open="">
+<summary><h2>Depositing to the destination</h2></summary>
+<div class="sec-body">To deposit BTC, select native BTC as the source, choose the destination network and Bitcoin representation, then review the provider, receiving-token contract, rate, fees, confirmations, liquidity and custody model. The protocol gives you a Bitcoin deposit address or starts a native swap; after the required Bitcoin confirmations, destination delivery still depends on finality, protocol processing and congestion. A <a href="https://bitcoin.org/en/you-need-to-know" rel="noopener noreferrer" target="_blank">Bitcoin confirmation</a> means the transaction has been included in a block, so keep BTC for the source transaction and the destination gas asset ready before you start.</div>
+</details>
+<details class="sec reveal doc-sec" id="withdraw" open="">
+<summary><h2>Withdrawing back</h2></summary>
+<div class="sec-body">To withdraw BTC, burn or transfer the tokenized Bitcoin and provide the Bitcoin address that should receive the release. Some routes add a finalization, proving or challenge step; a pending transaction is not a reason to submit a duplicate, and the receiving Bitcoin address format must match the route before signing. A non-custodial interface keeps keys with you. The return leg may therefore be slower or use a different transaction sequence than the deposit.</div>
+</details>
+<details class="sec reveal doc-sec" id="fees" open="">
+<summary><h2>Time and fees</h2></summary>
+<div class="sec-body">BTC bridge cost is the sum of the Bitcoin network fee, destination-chain gas, any provider service fee or spread, and mint/redeem logic where applicable. Time is also layered: Bitcoin confirmations, destination finality, protocol processing and congestion stack together. On Ethereum, <a href="https://en.wikipedia.org/wiki/Ethereum" rel="noopener noreferrer" target="_blank">gas</a> is the execution resource paid for with the chain's native asset. Compare the quote screen by received amount, exchange rate, fees, estimated confirmations and exact token contract rather than by route name.</div>
+</details>
+<details class="sec reveal doc-sec" id="safety" open="">
+<summary><h2>Is BTC Bridge safe?</h2></summary>
+<div class="sec-body">BTC bridge safety is route-dependent: verify the provider domain, token contract, audits, custody model, destination address and current protocol status before signing. Audited or open-source code reduces some risk but never makes a bridge risk-free; smart-contract, approval, routing, cross-chain and phishing risks remain. WBTC relies on authorized merchants and institutional custodians, whose transparency posture is published at <a href="https://wbtc.network/transparency" rel="noopener noreferrer" target="_blank">WBTC transparency</a>, while tBTC shifts trust toward threshold signer groups and contract risk.</div>
+</details>
+<details class="sec reveal doc-sec" id="troubleshoot" open="">
+<summary><h2>Problems and fixes</h2></summary>
+<div class="sec-body">Most BTC bridge problems are identifiable from the route state: a wrong destination network, no destination gas, a pending Bitcoin confirmation, or a fake bridge site. If the destination token is missing, compare the received asset with the expected ERC-20 contract; if the transfer is stuck, collect transaction hashes from both chains and use the protocol's documented support channel. Bridge recovery uses transaction data, not seed phrases, and unsolicited support messages are not part of the route.</div>
+</details>
+<details class="sec reveal doc-sec" id="faq" open="">
+<summary><h2>BTC FAQ</h2></summary>
+<div class="sec-body">
+<details class="qa"><summary>Is this the official BTC Bridge site?</summary><div class="a"><p>No. This is an independent, non-custodial informational dashboard; it does not custody funds, mint tokens or guarantee routes, and execution belongs to the protocol you choose.</p></div></details>
+<details class="qa"><summary>How long does bridging BTC take?</summary><div class="a"><p>Bridging time is the combined wait for Bitcoin confirmations, destination finality, protocol processing and congestion, so deposit and withdrawal can have different waits. Any displayed estimate is route-specific, not universal.</p></div></details>
+<details class="qa"><summary>How do I bridge BTC to another network?</summary><div class="a"><p>Choose native BTC as the source, pick the destination network and token, review the provider, contract, rate, fees and custody, then send to the supplied Bitcoin address or start the native swap. The transfer is complete only when the expected receiving-token contract is present.</p></div></details>
+<details class="qa"><summary>Do I need the destination gas asset?</summary><div class="a"><p>Yes for meaningful use after arrival: ERC-20 transfers, swaps and withdrawals need the destination chain's native gas asset. Keep BTC for the source transaction and the destination asset for later transactions.</p></div></details>
+<details class="qa"><summary>Is bridging BTC safe?</summary><div class="a"><p>It depends on the route's trust model: WBTC uses authorized merchants and institutional custodians, while tBTC uses threshold signer groups; other routes rely on validators, liquidity networks or verification contracts.</p></div></details>
+<details class="qa"><summary>Native route versus third-party bridge?</summary><div class="a"><p>Native-style swaps exchange assets through cross-chain liquidity or protocol logic, while lock-and-mint routes issue a redeemable representation such as WBTC or tBTC. The decision is which trust model fits the route: custodian/merchant, threshold signers, validators, liquidity network or verification contract.</p></div></details>
+</div>
+</details>
+<section class="field-notes reveal doc-sec" id="notes">
+<h2>Notes before you use BTC Bridge</h2>
+<div class="fn-body"><strong>Bridge the route, not the ticker.</strong> The useful comparison is who custodies or verifies the deposit and which token you will actually receive. <strong>Before you sign</strong><ul><li>Match the bridge site, provider domain and receiving-token contract to the route you selected.</li><li>Check source and destination networks, Bitcoin address format, and keep gas available on both chains.</li><li>Account for the withdrawal sequence: burn/release, proving, challenge or finality can delay the return leg.</li></ul>The WBTC contract can be checked against its <a href="https://etherscan.io/address/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599" rel="noopener noreferrer" target="_blank">Ethereum address record</a>; last reviewed 21 July 2026. <strong>Independent reference — confirm the route in your own wallet.</strong></div>
+</section>
+</div>
+</div>
+</div>
+<footer class="site-foot"><div class="wrap">BTC Bridge Guide &amp; Technical Reference · <a href="dashboard/" rel="noopener noreferrer" target="_blank">Open BTC Bridge App ↗</a> · © 2026</div></footer>
+</main>
+</div>
 <script>
 /* BTC Bridge: route preview, mobile nav, scroll-reveal. */
 (function () {
@@ -654,6 +715,17 @@ html.js .reveal.in { opacity: 1; transform: none; }
     if (el && el.tagName === "DETAILS") { el.open = true; el.classList.add("in"); }
   });
 
+  })();
+  (function(){
+    var links=[].slice.call(document.querySelectorAll(".toc a"));
+    if(!links.length)return;
+    var secs=[].slice.call(document.querySelectorAll(".doc-main [id]")).filter(function(s){return document.querySelector('.toc a[href="#'+s.id+'"]');});
+    if(!secs.length)return;
+    function setActive(id){links.forEach(function(a){a.classList.toggle("active",a.getAttribute("href")==="#"+id);});}
+    function update(){var cur=secs[0];for(var i=0;i<secs.length;i++){if(secs[i].getBoundingClientRect().top-120<=0)cur=secs[i];else break;}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4)cur=secs[secs.length-1];if(cur)setActive(cur.id);}
+    window.addEventListener("scroll",update,{passive:true});
+    window.addEventListener("resize",update);
+    update();
   })();
   </script>
 </body>
