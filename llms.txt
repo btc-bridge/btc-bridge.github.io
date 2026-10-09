@@ -1,45 +1,35 @@
-# BTC Bridge — Technical Reference & Protocol Knowledge Base
+# BTC Bridge
 
-> BTC Bridge dashboard for comparing lock-and-mint, burn-and-release, liquidity and native swap routes, with contract, custody, fee and safety checks.
+> BTC Bridge connects native Bitcoin to Ethereum and seven other networks through Bitcoin-backed tokens.
 
-## Key Facts & Smart Contract Specs
-- **Protocol Class**: Canonical Cross-Chain Asset Bridge Infrastructure
-- **Supported Chain IDs**: 1
-- **Protocol Fee Structure**: 0.00% Markup Fee (Standard Network Execution Gas Only)
-- **Custody Architecture**: Non-custodial — funds escrowed directly in smart contracts; wallet signs all approvals
-- **Verified Contract Addresses**: `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599`, `0x18084fbA666a33D37592fA2633fD49a74DD93a88`
-- **Security & Audits**: Open-source contracts audited by leading security firms; risk indexed on L2BEAT & Etherscan
-- **Practitioner Test Verification**: Tested & Verified by Practitioner (July 2026)
+## Pages
+- [BTC Bridge](https://insert_url/): networks, token formats, wallet requirements, fees, timing and FAQ.
+- [Application](https://insert_url/dashboard/): review and continue a Bitcoin bridge transfer.
 
-## How BTC Bridge Works
+## Network comparison
+- Ethereum: WBTC, cbBTC, tBTC; gas asset ETH; EVM wallet.
+- Base: cbBTC, tBTC; gas asset ETH; EVM wallet.
+- Arbitrum: WBTC, cbBTC, tBTC; gas asset ETH; EVM wallet.
+- Solana: cbBTC, tBTC; gas asset SOL; Solana wallet.
+- BNB Chain: BTCB; gas asset BNB; EVM wallet.
+- Optimism: WBTC, tBTC; gas asset ETH; EVM wallet.
+- Polygon: WBTC; gas asset POL; EVM wallet.
+- Avalanche: BTC.b; gas asset AVAX; EVM wallet.
 
-### 1. Depositing Assets
-Connect a Web3 EVM wallet to the source network. Select the asset to bridge, authorize token allowance if prompted, and execute the deposit transaction. Escrowed assets are minted/released on the destination chain in minutes.
+Token availability is route-specific.
 
-### 2. Withdrawing Assets
-Withdrawals require initiating the exit on the target chain, waiting for state proof finalization, and executing a final claim transaction on L1 mainnet.
+## Transfer mechanics
+- One BTC equals 100,000,000 satoshis.
+- Bitcoin targets a 10-minute average block interval.
+- Total transfer time includes confirmations, bridge processing and destination settlement.
+- Review the Bitcoin transaction fee, route fee and destination costs together.
 
-### 3. Essential Gas Fuel Warning
-Always maintain sufficient native network gas tokens on both source and destination addresses before initiating cross-chain transactions.
-
-## Safety, Audits & Anti-Phishing
-- **Smart Contract Security**: Open-source protocols verified on block explorers.
-- **Anti-Phishing Protocol**: Always verify domain authenticity and check contract approval targets prior to signing Web3 transactions.
-
-## Frequently Asked Questions (FAQ)
-
-### What fees are charged by BTC Bridge?
-There is zero protocol fee (0.00%). Users pay standard network execution gas.
-
-### Is BTC Bridge non-custodial?
-Yes, you maintain 100% control of your private keys and assets at all times.
-
-## Internal Sections & App Navigation
-- [What is Btc Bridge?](#what)
-- [How it works](#how)
-- [Time and fees](#fees)
-- [Safety & Audits](#safety)
-- [Troubleshooting & Fixes](#troubleshoot)
-- [Frequently Asked Questions](#faq)
-- [BTC Bridge Dashboard](index.html)
-- [Open BTC Bridge App](dashboard/index.html)
+## FAQ
+- **What is BTC Bridge?** BTC Bridge connects native Bitcoin to other blockchains through Bitcoin-backed tokens. Choose a destination such as Ethereum, Base or Solana, review the route, and receive the selected token in your destination wallet.
+- **How do I bridge BTC to Ethereum?** Select Ethereum, enter your BTC amount and receiving address, and review the token and transfer fees. Send BTC to the deposit address assigned to the transfer. After the required Bitcoin confirmations and bridge processing, the destination token arrives on Ethereum.
+- **How long does a BTC bridge take?** The total time includes Bitcoin confirmations, bridge processing and destination settlement. Bitcoin targets one block every 10 minutes on average. Three required confirmations correspond to roughly 30 minutes of confirmation time; queueing and settlement add to that interval.
+- **What fees do I pay to bridge Bitcoin?** Review three components: the Bitcoin transaction fee, the route fee and destination settlement costs. The Bitcoin fee depends on the transaction size and sat/vB fee rate. Route fees can be fixed or percentage-based. Keep the destination gas asset available for later transactions.
+- **Is bridged BTC the same as native Bitcoin?** Native BTC exists on the Bitcoin blockchain. On another network, you hold a token representing bitcoin, such as WBTC, cbBTC, tBTC, BTCB or BTC.b. Each token has its own reserve, custody and redemption arrangements.
+- **Can I bridge BTC back to Bitcoin?** Use a redemption route that accepts your token on its current network and pays native BTC to a Bitcoin address. Review the minimum amount, redemption fee and confirmation requirements before sending the token.
+- **Which wallet do I need for BTC Bridge?** Use a Bitcoin wallet for the deposit and a wallet compatible with the destination network for receipt. Ethereum, Base, Arbitrum, BNB Chain, Optimism, Polygon and Avalanche C-Chain use EVM addresses. Solana uses a Solana address.
+- **Why is my BTC bridge transfer still pending?** Check the Bitcoin transaction first. An unconfirmed deposit is waiting for inclusion in a block; a confirmed deposit may still need additional confirmations. Once the route reaches its required count, bridge processing and destination settlement follow. Keep the transfer ID and both transaction records available.
