@@ -7,7 +7,7 @@ function updateRoute() {
  document.getElementById('token-note').textContent = 'BTC formats: ' + chain.tokens;
  document.getElementById('gas-token').textContent = chain.gas;
  document.getElementById('cta-network').textContent = chain.name;
- document.querySelectorAll('.c505360 button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.slug === chain.slug)));
+ document.querySelectorAll('.c4f3d68 button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.slug === chain.slug)));
 }
 function updateAmount() {
  const raw = amount.value.trim();
@@ -27,7 +27,7 @@ function updateAmount() {
 }
 destination.addEventListener('change', updateRoute);
 amount.addEventListener('input', updateAmount);
-document.querySelectorAll('.c505360 button').forEach(button => button.addEventListener('click', () => { destination.value = button.dataset.slug; updateRoute(); }));
+document.querySelectorAll('.c4f3d68 button').forEach(button => button.addEventListener('click', () => { destination.value = button.dataset.slug; updateRoute(); }));
 document.getElementById('go').addEventListener('click', event => {
  if (!updateAmount()) { event.preventDefault(); amount.focus(); return; }
  try { sessionStorage.setItem('btcBridgeTransfer', JSON.stringify({from:'bitcoin', to:destination.value, amount:amount.value.trim()})); } catch {}
