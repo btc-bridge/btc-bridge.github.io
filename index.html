@@ -1,115 +1,287 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BTC Bridge | Move Bitcoin to Ethereum &amp; 7 More Networks</title>
-<meta name="description" content="BTC Bridge connects Bitcoin to Ethereum, Base, Solana and more. Compare 8 networks, BTC token formats, bridge fees and confirmation times.">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BTC Bridge — Move Bitcoin to EVM chains as wrapped BTC</title>
+<meta name="description" content="BTC Bridge helps you move native Bitcoin to Ethereum, Arbitrum and other EVM chains as wrapped BTC, and back. Non-custodial interface; you sign every step.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#f8f6f3">
 <link rel="canonical" href="https://btc-bridge.github.io/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="BTC Bridge">
-<meta property="og:title" content="BTC Bridge | Move Bitcoin to Ethereum &amp; 7 More Networks">
-<meta property="og:description" content="BTC Bridge connects Bitcoin to Ethereum, Base, Solana and more. Compare 8 networks, BTC token formats, bridge fees and confirmation times.">
-<meta property="og:url" content="https://btc-bridge.github.io/">
-<meta property="og:image" content="https://btc-bridge.github.io/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="BTC Bridge — bridge bitcoin to Ethereum, Solana, Base and more">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BTC Bridge | Move Bitcoin to Ethereum &amp; 7 More Networks">
-<meta name="twitter:description" content="BTC Bridge connects Bitcoin to Ethereum, Base, Solana and more. Compare 8 networks, BTC token formats, bridge fees and confirmation times.">
-<meta name="twitter:url" content="https://btc-bridge.github.io/">
-<meta name="twitter:image:alt" content="BTC Bridge: Bitcoin to Ethereum and 7 more networks">
-<meta name="twitter:image" content="https://btc-bridge.github.io/og.png">
-<meta name="theme-color" content="#FAF9F6">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://btc-bridge.github.io/#website", "url": "https://btc-bridge.github.io/", "name": "Website", "inLanguage": "en"}, {"@type": "WebPage", "@id": "https://btc-bridge.github.io/#webpage", "url": "https://btc-bridge.github.io/", "name": "BTC Bridge | Move Bitcoin to Ethereum & 7 More Networks", "description": "BTC Bridge connects Bitcoin to Ethereum, Base, Solana and more. Compare 8 networks, BTC token formats, bridge fees and confirmation times.", "isPartOf": {"@id": "https://btc-bridge.github.io/#website"}, "about": {"@id": "https://btc-bridge.github.io/#app"}, "breadcrumb": {"@id": "https://btc-bridge.github.io/#breadcrumb"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://btc-bridge.github.io/og.png", "width": 1200, "height": 630}, "datePublished": "2026-10-09", "dateModified": "2026-10-09", "inLanguage": "en"}, {"@type": "SoftwareApplication", "@id": "https://btc-bridge.github.io/#app", "name": "BTC Bridge", "url": "https://btc-bridge.github.io/dashboard/", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "description": "Select a Bitcoin bridge destination, compare network requirements, convert BTC to satoshis and review confirmation timing.", "featureList": ["Eight destination networks", "BTC to satoshi conversion", "Destination gas and wallet comparison", "Bitcoin confirmation time calculator"], "image": "https://btc-bridge.github.io/og.png"}, {"@type": "BreadcrumbList", "@id": "https://btc-bridge.github.io/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://btc-bridge.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Bitcoin Bridges", "item": "https://btc-bridge.github.io/dashboard/"}, {"@type": "ListItem", "position": 3, "name": "BTC Bridge", "item": "https://btc-bridge.github.io/"}]}, {"@type": "FAQPage", "@id": "https://btc-bridge.github.io/#faq", "isPartOf": {"@id": "https://btc-bridge.github.io/#webpage"}, "mainEntity": [{"@type": "Question", "name": "What is BTC Bridge?", "acceptedAnswer": {"@type": "Answer", "text": "BTC Bridge connects native Bitcoin to other blockchains through Bitcoin-backed tokens. Choose a destination such as Ethereum, Base or Solana, review the route, and receive the selected token in your destination wallet."}}, {"@type": "Question", "name": "How do I bridge BTC to Ethereum?", "acceptedAnswer": {"@type": "Answer", "text": "Select Ethereum, enter your BTC amount and receiving address, and review the token and transfer fees. Send BTC to the deposit address assigned to the transfer. After the required Bitcoin confirmations and bridge processing, the destination token arrives on Ethereum."}}, {"@type": "Question", "name": "How long does a BTC bridge take?", "acceptedAnswer": {"@type": "Answer", "text": "The total time includes Bitcoin confirmations, bridge processing and destination settlement. Bitcoin targets one block every 10 minutes on average. Three required confirmations correspond to roughly 30 minutes of confirmation time; queueing and settlement add to that interval."}}, {"@type": "Question", "name": "What fees do I pay to bridge Bitcoin?", "acceptedAnswer": {"@type": "Answer", "text": "Review three components: the Bitcoin transaction fee, the route fee and destination settlement costs. The Bitcoin fee depends on the transaction size and sat/vB fee rate. Route fees can be fixed or percentage-based. Keep the destination gas asset available for later transactions."}}, {"@type": "Question", "name": "Is bridged BTC the same as native Bitcoin?", "acceptedAnswer": {"@type": "Answer", "text": "Native BTC exists on the Bitcoin blockchain. On another network, you hold a token representing bitcoin, such as WBTC, cbBTC, tBTC, BTCB or BTC.b. Each token has its own reserve, custody and redemption arrangements."}}, {"@type": "Question", "name": "Can I bridge BTC back to Bitcoin?", "acceptedAnswer": {"@type": "Answer", "text": "Use a redemption route that accepts your token on its current network and pays native BTC to a Bitcoin address. Review the minimum amount, redemption fee and confirmation requirements before sending the token."}}, {"@type": "Question", "name": "Which wallet do I need for BTC Bridge?", "acceptedAnswer": {"@type": "Answer", "text": "Use a Bitcoin wallet for the deposit and a wallet compatible with the destination network for receipt. Ethereum, Base, Arbitrum, BNB Chain, Optimism, Polygon and Avalanche C-Chain use EVM addresses. Solana uses a Solana address."}}, {"@type": "Question", "name": "Why is my BTC bridge transfer still pending?", "acceptedAnswer": {"@type": "Answer", "text": "Check the Bitcoin transaction first. An unconfirmed deposit is waiting for inclusion in a block; a confirmed deposit may still need additional confirmations. Once the route reaches its required count, bridge processing and destination settlement follow. Keep the transfer ID and both transaction records available."}}]}]}</script>
+<meta property="og:type" content="website"><meta property="og:site_name" content="BTC Bridge"><meta property="og:title" content="BTC Bridge — Move Bitcoin to EVM chains as wrapped BTC"><meta property="og:description" content="BTC Bridge helps you move native Bitcoin to Ethereum, Arbitrum and other EVM chains as wrapped BTC, and back. Non-custodial interface; you sign every step."><meta property="og:url" content="https://btc-bridge.github.io/"><meta property="og:image" content="https://btc-bridge.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="BTC Bridge — Move Bitcoin to EVM chains as wrapped BTC"><meta name="twitter:description" content="BTC Bridge helps you move native Bitcoin to Ethereum, Arbitrum and other EVM chains as wrapped BTC, and back. Non-custodial interface; you sign every step."><meta name="twitter:image" content="https://btc-bridge.github.io/og-image.png">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="manifest" href="manifest.webmanifest">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://btc-bridge.github.io/#organization","name":"BTC Bridge","url":"https://btc-bridge.github.io/","description":"BTC Bridge helps you move native Bitcoin to Ethereum, Arbitrum and other EVM chains as wrapped BTC, and back. Non-custodial interface; you sign every step.","logo":{"@type":"ImageObject","@id":"https://btc-bridge.github.io/#logo","url":"https://btc-bridge.github.io/icon.svg","caption":"BTC Bridge"}},{"@type":"WebSite","@id":"https://btc-bridge.github.io/#website","url":"https://btc-bridge.github.io/","publisher":{"@id":"https://btc-bridge.github.io/#organization"},"name":"BTC Bridge"},{"@type":"WebPage","@id":"https://btc-bridge.github.io/#webpage","url":"https://btc-bridge.github.io/","publisher":{"@id":"https://btc-bridge.github.io/#organization"},"name":"BTC Bridge — Move Bitcoin to EVM chains as wrapped BTC","isPartOf":{"@id":"https://btc-bridge.github.io/#website"},"mainEntity":{"@id":"https://btc-bridge.github.io/#app"},"breadcrumb":{"@id":"https://btc-bridge.github.io/#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://btc-bridge.github.io/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://btc-bridge.github.io/"},{"@type":"ListItem","position":2,"name":"BTC Bridge","item":"https://btc-bridge.github.io/"}]},{"@type":"WebApplication","@id":"https://btc-bridge.github.io/#app","url":"https://btc-bridge.github.io/","publisher":{"@id":"https://btc-bridge.github.io/#organization"},"name":"BTC Bridge","applicationCategory":"FinanceApplication","operatingSystem":"Web","description":"BTC Bridge helps you move native Bitcoin to Ethereum, Arbitrum and other EVM chains as wrapped BTC, and back. Non-custodial interface; you sign every step.","isPartOf":{"@id":"https://btc-bridge.github.io/#website"}},{"@type":"FAQPage","@id":"https://btc-bridge.github.io/#faq","isPartOf":{"@id":"https://btc-bridge.github.io/#webpage"},"about":{"@id":"https://btc-bridge.github.io/#app"},"name":"BTC Bridge FAQ","mainEntity":[{"@type":"Question","name":"What is a BTC bridge?","acceptedAnswer":{"@type":"Answer","text":"A BTC bridge locks native Bitcoin with a custodian, federation or threshold signer network, and issues a wrapped BTC token on an EVM chain. You can burn the token later to get native BTC back."}},{"@type":"Question","name":"Does a BTC bridge send my actual bitcoin to Ethereum?","acceptedAnswer":{"@type":"Answer","text":"No. Native BTC always stays on the Bitcoin network. What reaches Ethereum or Arbitrum is a token that represents BTC held by the bridge\u0027s custodian or signer network."}},{"@type":"Question","name":"Who holds my BTC while I hold wrapped BTC?","acceptedAnswer":{"@type":"Answer","text":"The custodian, federation or threshold network behind the token holds it. This interface never holds your funds; it only helps you build and sign the transactions from your own wallets."}},{"@type":"Question","name":"What is the difference between WBTC, tBTC and cbBTC?","acceptedAnswer":{"@type":"Answer","text":"They are examples of different models: some are issued by a custodian, others by a threshold network of signers. Each has its own reserves, redemption rules and trust assumptions. This interface has no partnership with any of them."}},{"@type":"Question","name":"Which wallets and gas do I need to bridge BTC?","acceptedAnswer":{"@type":"Answer","text":"You need a Bitcoin wallet to send BTC and an EVM wallet to receive the wrapped token. You pay a Bitcoin network fee in BTC, plus gas in ETH or the chain\u0027s native token for EVM-side transactions."}},{"@type":"Question","name":"Can I turn wrapped BTC back into native BTC?","acceptedAnswer":{"@type":"Answer","text":"Yes, through the redemption process of the token you hold. You burn or redeem it on the EVM chain and provide a Bitcoin address. Timing, fees and any limits depend on that token\u0027s design."}}]}]}
+</script>
+<style>
+@font-face{font-family:'Inter';src:url('assets/inter.woff2') format('woff2');font-weight:400 700;font-display:swap}
+@font-face{font-family:'Space Grotesk';src:url('assets/space-grotesk.woff2') format('woff2');font-weight:500 700;font-display:swap}
+:root{
+ --bg:#f8f6f3;--card:#fff;--ink:#1d1710;--muted:#737b88;--faint:#aeb4bf;
+ --line:#efebe5;--line-2:#e6e0d8;--panel:#f9f7f4;--panel-2:#f1ece6;
+ --accent:#b35900;--accent-hover:#9a4d00;--accent-ink:#a04f00;--accent-soft:#fdeedb;--accent-on:#ffffff;--promo:#fef3e5;--text-2:#4b5563;
+ --shadow:0 1px 2px rgba(13,17,28,.04),0 24px 56px -40px rgba(13,17,28,.24);--pico-bg:#fff;--pico-ring:rgba(13,17,28,.06);
+ --ease:cubic-bezier(.2,.7,.2,1);
+ --head:"Space Grotesk","Arial",sans-serif;--body:"Inter","Arial",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;color:var(--ink);font:15px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden;background:var(--bg)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:none;-webkit-mask-image:linear-gradient(#000 0,rgba(0,0,0,.35) 60%,transparent 100%);mask-image:linear-gradient(#000 0,rgba(0,0,0,.35) 60%,transparent 100%)}
+a{color:inherit;text-decoration:none}button{font-family:inherit;cursor:pointer;background:none;border:0;color:inherit}
+img{display:block;max-width:100%}
+h1,h2,h3{margin:0;font-family:var(--head);font-weight:500;letter-spacing:-.01em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:8px}
+
+.nav{display:flex;align-items:center;gap:24px;padding:16px 24px;max-width:1280px;margin:0 auto;width:100%}
+.brand{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-weight:500;font-size:20px;letter-spacing:-.02em;color:var(--ink);white-space:nowrap;flex:0 0 auto}
+.brand img{width:28px;height:28px}
+.nlinks{display:flex;align-items:center;gap:20px}
+.nlinks a{font-size:14px;font-weight:500;color:var(--muted);white-space:nowrap;transition:color .16s var(--ease)}
+.nlinks a:hover{color:var(--ink)}
+.spacer{flex:1}
+main{flex:1}
+.chain{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 12px;border-radius:10px;background:var(--panel-2);font-weight:500;font-size:14px;color:var(--ink);transition:background-color .16s var(--ease);flex:0 0 auto;white-space:nowrap}
+.chain img{width:20px;height:20px;border-radius:50%}
+.chain:hover{background:var(--line-2)}
+.chain .cv{width:12px;height:12px;color:var(--muted)}
+.connect{display:inline-flex;align-items:center;height:40px;padding:0 16px;border-radius:10px;background:var(--card);border:1px solid var(--line-2);color:var(--ink);font-weight:500;font-size:14px;transition:background-color .16s var(--ease),border-color .16s var(--ease);flex:0 0 auto;white-space:nowrap}
+.connect:hover{border-color:var(--faint);background:var(--panel)}
+
+.hero{display:flex;flex-direction:column;align-items:center;padding:32px 20px 48px}
+h1{font-size:clamp(36px,4.6vw,48px);line-height:1.08;letter-spacing:-.025em;text-align:center;color:var(--ink);margin:0 0 32px}
+
+.card{width:min(600px,100%);background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.tabs{display:flex;align-items:center;gap:4px;padding:20px 20px 16px}
+.tab{display:inline-flex;align-items:center;height:36px;padding:0 14px;border-radius:10px;font-weight:500;font-size:14px;color:var(--muted);transition:background-color .16s var(--ease),color .16s var(--ease)}
+.tab:hover{background:var(--panel-2);color:var(--ink)}
+.tab.on{background:var(--accent-soft);color:var(--accent-ink)}
+.tabs .sp{flex:1}
+.tabs .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;color:var(--muted);transition:background-color .16s var(--ease),color .16s var(--ease)}
+.tabs .ic:hover{background:var(--panel-2);color:var(--ink)}
+.tabs .ic svg{width:18px;height:18px}
+
+.promo{margin:0 20px;padding:32px;border-radius:12px;background:var(--promo);display:flex;align-items:center;gap:20px}
+.promo-txt{flex:1;min-width:0}
+.promo-h{font-family:var(--head);font-weight:500;font-size:clamp(22px,3.4vw,28px);line-height:1.2;letter-spacing:-.015em;color:var(--ink);margin:0 0 8px;text-wrap:balance}
+.promo-sub{font-size:15px;line-height:1.6;color:var(--text-2);margin:0;max-width:34ch}
+.promo-grid{flex:0 0 auto;display:grid;grid-template-columns:repeat(2,auto);gap:16px}
+.pico{width:52px;height:52px;border-radius:50%;background:var(--pico-bg);box-shadow:0 0 0 1px var(--pico-ring);display:grid;place-items:center;overflow:hidden}
+.pico img{width:100%;height:100%;object-fit:contain;display:block}
+.promo-flow{flex-direction:column;align-items:stretch;gap:24px}
+.promo-flow .promo-sub{max-width:44ch}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.flow li{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px}
+.flow li+li::before{content:"";position:absolute;top:22px;right:calc(50% + 30px);width:calc(100% - 52px);height:1px;background:var(--line-2)}
+.fi{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;overflow:hidden;background:var(--pico-bg);box-shadow:0 0 0 1px var(--pico-ring);color:var(--accent-ink)}
+.fi img{width:100%;height:100%;display:block}
+.fi svg{width:20px;height:20px}
+.fi.on{background:var(--accent);color:var(--accent-on);box-shadow:none}
+.flow b{margin-top:4px;font-weight:500;font-size:14px;color:var(--ink)}
+.flow small{font-size:13px;line-height:1.4;color:var(--muted)}
+.cta-wrap{padding:20px}
+.cta{width:100%;height:60px;border-radius:12px;background:var(--accent);color:var(--accent-on);font-weight:500;font-size:16px;transition:background-color .16s var(--ease),transform .12s var(--ease)}
+.cta:hover{background:var(--accent-hover)}
+.cta:active{transform:scale(.99)}
+@media(max-width:470px){.promo{flex-direction:column;align-items:flex-start}.promo-grid{grid-template-columns:repeat(4,auto)}.promo-sub{max-width:none}}
+
+.learn{max-width:720px;margin:48px auto 0;width:100%;padding:0 24px 72px}
+.learn-h{font-size:14px;font-weight:500;color:var(--muted);text-align:center;margin:0 0 12px}
+.lrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-items:flex-start}
+.lcard{flex:0 0 auto;background:transparent;border:1px solid var(--line-2);border-radius:10px;transition:background-color .16s var(--ease),border-color .16s var(--ease)}
+.lcard>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;height:36px;padding:0 12px;font-weight:500;font-size:14px;color:var(--text-2)}
+.lcard>summary::-webkit-details-marker{display:none}
+.lcard:hover{border-color:var(--faint);background:var(--card)}.lcard:hover>summary{color:var(--ink)}
+.lcard .chev{width:6px;height:6px;border-right:1.5px solid var(--muted);border-bottom:1.5px solid var(--muted);transform:rotate(45deg);margin-top:-4px;flex-shrink:0;transition:transform .16s var(--ease)}
+.lcard[open]{order:9;flex:0 0 100%;min-width:0;background:var(--card);border-color:var(--line-2);border-radius:16px;margin-top:8px}
+.lcard[open]>summary{height:auto;padding:20px 24px 0;color:var(--muted);font-size:13px}
+.lcard[open] .chev{transform:rotate(225deg);margin-top:4px}
+.lbody{padding:4px 24px 24px;max-width:660px}
+.lbody h2{font-size:22px;line-height:1.3;color:var(--ink);margin:8px 0 4px}
+.lbody h3{font-size:15px;line-height:1.4;color:var(--ink);margin:20px 0 4px}
+.lbody p{margin:0;font-size:15px;line-height:1.7;color:var(--text-2)}
+.lbody p+p{margin-top:8px}
+.lbody ul,.lbody ol{margin:8px 0 0;padding-left:20px}
+.lbody li{font-size:15px;line-height:1.7;color:var(--text-2);margin-bottom:4px}
+.lbody a{color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px}
+.lbody strong,.lbody b{color:var(--ink);font-weight:500}
+.lbody .tbl{overflow-x:auto;margin:16px 0 4px}
+.lbody table{width:100%;min-width:420px;border-collapse:collapse;font-size:14px}
+.lbody caption{text-align:left;color:var(--muted);font-size:13px;margin-bottom:8px}
+.lbody th,.lbody td{text-align:left;padding:8px 12px;border:1px solid var(--line-2);vertical-align:top;line-height:1.45}
+.lbody thead th{background:var(--panel);color:var(--ink);font-weight:500}
+.lbody tbody th{background:var(--panel);color:var(--muted);white-space:nowrap;font-weight:500}
+.lbody td{color:var(--text-2)}
+.lfaq h3{margin-top:16px;font-size:16px}
+
+footer{border-top:1px solid var(--line-2);background:var(--card)}
+.foot{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:20px 24px 24px;color:var(--muted);font-size:13px}
+.foot a{color:var(--muted);transition:color .16s var(--ease)}.foot a:hover{color:var(--ink)}.foot .sep{color:var(--faint)}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,8px);background:var(--ink);color:var(--bg);border-radius:12px;padding:12px 16px;font-size:13px;box-shadow:0 16px 40px -16px rgba(13,17,28,.5);z-index:60;opacity:0;visibility:hidden;transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;visibility:visible;transform:translate(-50%,0)}
+
+@media(max-width:1120px){.nlinks{display:none}}
+@media(max-width:720px){.chain span{display:none}.chain{padding:0 8px;gap:4px}}
+@media(max-width:560px){
+  .nav{padding:12px 16px;gap:8px}
+  .brand{font-size:16px}
+  .brand img{width:24px;height:24px}
+  .chain{height:36px;padding:0 8px;gap:4px}
+  .chain span{display:none}
+  .connect{height:36px;padding:0 12px;font-size:13px}
+  .hero{padding:24px 16px 40px}
+  .tabs{padding:16px 16px 12px}.promo{margin:0 16px;padding:24px}.cta-wrap{padding:16px}.cta{height:56px}
+  .learn{margin-top:40px;padding:0 16px 56px}
+}
+</style>
+<link rel="prerender" href="/dashboard/">
+<link rel="prefetch" href="/dashboard/" as="document">
+<link rel="preload" href="/dashboard/" as="document">
 </head>
 <body>
-<a class="c95cccb" href="#main">Skip to content</a>
-<header class="cfa0bd8"><div class="ca039cc">
-<div class="cee627e"><img src="assets/tokens/btc.svg" alt="" width="28" height="28"><span>BTC Bridge</span></div>
-<nav aria-label="Primary"><a href="#routes">Networks</a><a href="#how">How it works</a><a href="#fees">Fees &amp; timing</a><a href="#faq">FAQ</a></nav>
-<a class="c19c44b c7d02cc" href="dashboard/">Open app <span class="cf40db8" aria-hidden="true">↗</span></a>
-</div></header>
-<main id="main">
-<section class="cb91425"><div class="ca039cc">
-<nav class="c04d605" aria-label="Breadcrumb" style="margin:0 0 16px"><a href="/">Home</a> <span aria-hidden="true">/</span> <a href="dashboard/">Bitcoin Bridges</a> <span aria-hidden="true">/</span> <span aria-current="page">BTC Bridge</span></nav>
-<h1>BTC Bridge</h1>
-<p class="c4fd441" id="btc-bridge-answer">BTC Bridge lets you use native Bitcoin on another blockchain by exchanging it for a Bitcoin-backed token such as WBTC, cbBTC or tBTC. You send BTC through a supported route and receive tokens in a compatible wallet after Bitcoin confirmations, bridge processing and destination settlement.</p>
-<p class="c4fd441"><strong>BTC Bridge</strong> connects native Bitcoin to Ethereum and seven other networks through Bitcoin-backed tokens. Choose your destination and bridge BTC from your wallet.</p>
-<p class="cce9b59"><time datetime="2026-10-09">Updated Oct 09, 2026</time></p>
-<div class="c570163" aria-labelledby="widget-title">
-<div class="cff383a"><h2 id="widget-title">Bridge Bitcoin</h2><span>8 destination networks</span></div>
-<div class="c800d40"><div class="c5931e0"><label for="amount">You send</label><span>Bitcoin network</span></div>
-<div class="c754810"><input id="amount" type="text" inputmode="decimal" value="0.1" autocomplete="off" spellcheck="false" aria-describedby="sats amount-error" aria-label="Amount in BTC"><span class="ce6c400"><img src="assets/tokens/btc.svg" alt="" width="28" height="28"> BTC</span></div>
-<div class="ca3feff" id="sats" aria-live="polite">10,000,000 sats</div><p class="c7ccc16" id="amount-error" role="status"></p></div>
-<div class="ce79782" aria-hidden="true"><span>↓</span></div>
-<div class="c800d40"><div class="c5931e0"><label for="destination">Destination network</label><span>Receive in your wallet</span></div>
-<div class="ca09ff6"><img id="destination-icon" src="assets/tokens/eth.svg" alt="" width="28" height="28"><select id="destination" aria-describedby="token-note"><option value="ethereum">Ethereum</option><option value="base">Base</option><option value="arbitrum">Arbitrum</option><option value="solana">Solana</option><option value="bnb">BNB Chain</option><option value="optimism">Optimism</option><option value="polygon">Polygon</option><option value="avalanche">Avalanche</option></select></div>
-<p class="c3a4133" id="token-note">BTC formats: WBTC, cbBTC, tBTC</p></div>
-<div class="c7c3038"><span>Gas token on destination</span><strong id="gas-token">ETH</strong></div>
-<a class="c19c44b" id="go" href="dashboard/"><span>Bridge to <span id="cta-network">Ethereum</span></span><span class="cf40db8" aria-hidden="true">→</span></a>
-<p class="ca3a2df">Review the route, fees and receiving amount in the app.</p>
-</div>
-<div class="c4f3d68" role="group" aria-label="Choose a bridge destination"><button type="button" data-slug="ethereum" aria-pressed="true"><img src="assets/tokens/eth.svg" alt="" width="28" height="28"><span>Ethereum</span></button><button type="button" data-slug="base" aria-pressed="false"><img src="assets/tokens/base.svg" alt="" width="28" height="28"><span>Base</span></button><button type="button" data-slug="arbitrum" aria-pressed="false"><img src="assets/tokens/arb.svg" alt="" width="28" height="28"><span>Arbitrum</span></button><button type="button" data-slug="solana" aria-pressed="false"><img src="assets/tokens/sol.svg" alt="" width="28" height="28"><span>Solana</span></button><button type="button" data-slug="bnb" aria-pressed="false"><img src="assets/tokens/bnb.svg" alt="" width="28" height="28"><span>BNB Chain</span></button><button type="button" data-slug="optimism" aria-pressed="false"><img src="assets/tokens/optimism.svg" alt="" width="28" height="28"><span>Optimism</span></button><button type="button" data-slug="polygon" aria-pressed="false"><img src="assets/tokens/polygon.svg" alt="" width="28" height="28"><span>Polygon</span></button><button type="button" data-slug="avalanche" aria-pressed="false"><img src="assets/tokens/avalanche.svg" alt="" width="28" height="28"><span>Avalanche</span></button></div>
-<p class="cce9b59">Native BTC deposits · Bitcoin-backed assets · Your destination wallet</p>
-</div></section>
-<section class="c683b49" id="key-facts" aria-labelledby="key-facts-title" style="padding:32px 0">
-<div class="ca039cc">
-<h2 id="key-facts-title">BTC Bridge key facts</h2>
-<div class="cb58d56" role="region" aria-label="BTC Bridge key facts" tabindex="0" style="margin:0">
-<table style="min-width:0">
-<caption>Networks, token formats and protocol examples for bridging BTC.</caption>
-<tbody>
-<tr><th scope="row" style="width:28%">Networks compared</th><td>Bitcoin to 8 destinations: Ethereum, Base, Arbitrum, Solana, BNB Chain, Optimism, Polygon and Avalanche.</td></tr>
-<tr><th scope="row">BTC token formats</th><td>WBTC, cbBTC, tBTC, BTCB and BTC.b; cbBTC is available on Ethereum, Base, Solana and Arbitrum.</td></tr>
-<tr><th scope="row">Protocol fee example</th><td>tBTC standard mint fee: 0.20% (20 basis points), effective April 15, 2026, before eligible rebates. On 0.1 BTC, that is 0.0002 BTC (20,000 sats), plus network and settlement costs.</td></tr>
-<tr><th scope="row">Confirmation time</th><td>About 10 minutes per Bitcoin confirmation on average: 3 confirmations take roughly 30 minutes; 6 take roughly 60 minutes. Deposit queueing, bridge processing and destination settlement add time.</td></tr>
-<tr><th scope="row">What you need</th><td>BTC for the deposit and Bitcoin fee, a destination wallet, and gas for later transactions: ETH on Ethereum, Base, Arbitrum and Optimism; SOL on Solana; BNB on BNB Chain; POL on Polygon; AVAX on Avalanche.</td></tr>
-<tr><th scope="row">Custody example</th><td>cbBTC is backed 1:1 by BTC held in Coinbase custody. Your receiving wallet holds the destination token; reserve custody and redemption depend on the chosen token.</td></tr>
-</tbody>
-</table>
-</div>
-<p class="c04d605">Protocol references: <a href="https://www.threshold.network/blog/tbtc-mint-fee-reinstatement" rel="nofollow noopener" target="_blank">Threshold's tBTC fee update</a>, <a href="https://developer.bitcoin.org/devguide/payment_processing.html" rel="nofollow noopener" target="_blank">Bitcoin confirmation documentation</a> and <a href="https://help.coinbase.com/en/exchange/crypto-transfers/wrapped-assets" rel="nofollow noopener" target="_blank">Coinbase wrapped asset documentation</a>.</p>
-</div>
-</section>
-<section class="c683b49" id="what"><div class="ca039cc c8466c8">
-<div><h2>How BTC Bridge connects Bitcoin to other networks</h2>
-<p class="ce383c9">Bitcoin stays on its own blockchain. A bridge makes its value usable elsewhere by holding BTC in reserve and issuing or releasing a corresponding token on your chosen network.</p>
-<p class="cb1e552">You receive a Bitcoin-backed asset in your destination wallet. The token, network and redemption process belong to that route, so choosing a destination also means choosing how you hold and use your BTC.</p></div>
-<ul class="c973b3a"><li><b>8</b>destination networks</li><li><b>100M</b>satoshis in one BTC</li><li><b>~10 min</b>average Bitcoin block interval</li><li><b>3 parts</b>to review in the total fee</li></ul>
-</div></section>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-cv" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 6 5 5 5-5"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.4 3 8.4 7 10 4-1.6 7-5.6 7-10V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-coins" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="9" cy="7" rx="5" ry="2.5"/><path d="M4 7v4c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V7"/><path d="M10 15.5c.6 1.2 2.6 2 5 2 2.8 0 5-1.1 5-2.5v-4c0-1.4-2.2-2.5-5-2.5"/><path d="M20 15v4c0 1.4-2.2 2.5-5 2.5s-5-1.1-5-2.5v-2"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="10" rx="2.5"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/><path d="M12 14.5v2"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+<symbol id="i-drop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s-6 6.4-6 10.5a6 6 0 0 0 12 0c0-4.1-6-10.5-6-10.5z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="7" rx="2"/><rect x="4" y="13" width="16" height="7" rx="2"/><path d="M8 7.5h.01M8 16.5h.01"/></symbol>
+<symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.8 7.8 0 0 0 0-2l2-1.5-2-3.4-2.3 1a7.6 7.6 0 0 0-1.7-1L15 2.5h-4l-.4 2.6c-.6.3-1.2.6-1.7 1l-2.3-1-2 3.4L4.6 11a7.8 7.8 0 0 0 0 2l-2 1.5 2 3.4 2.3-1c.5.4 1.1.7 1.7 1l.4 2.6h4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.3 1 2-3.4z"/></symbol>
+</defs></svg>
 
-<section class="c683b49" id="routes"><div class="ca039cc">
-<div class="c03b78f"><div><h2>BTC Bridge supported networks</h2><p class="cb1e552">Compare the token format, wallet type and gas asset before choosing where your bitcoin goes.</p></div><a class="c4503d1" href="dashboard/">Explore bridge routes ↗</a></div>
-<div class="cb58d56" role="region" aria-label="Supported Bitcoin bridge networks" tabindex="0"><table><caption>Bitcoin is the source network for all eight destinations. Token availability is route-specific.</caption><thead><tr><th scope="col">Destination network</th><th scope="col">BTC token formats</th><th scope="col">Gas asset</th><th scope="col">Receiving wallet</th><th scope="col">Route</th></tr></thead><tbody><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/eth.svg" alt="" width="28" height="28"><span>Ethereum<small>Chain ID 1</small></span></span></th><td>WBTC, cbBTC, tBTC</td><td>ETH</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Ethereum">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/base.svg" alt="" width="28" height="28"><span>Base<small>Chain ID 8453</small></span></span></th><td>cbBTC, tBTC</td><td>ETH</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Base">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/arb.svg" alt="" width="28" height="28"><span>Arbitrum<small>Chain ID 42161</small></span></span></th><td>WBTC, cbBTC, tBTC</td><td>ETH</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Arbitrum">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/sol.svg" alt="" width="28" height="28"><span>Solana<small>Solana mainnet</small></span></span></th><td>cbBTC, tBTC</td><td>SOL</td><td>Solana address</td><td><a href="dashboard/" aria-label="Bridge BTC to Solana">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/bnb.svg" alt="" width="28" height="28"><span>BNB Chain<small>Chain ID 56</small></span></span></th><td>BTCB</td><td>BNB</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to BNB Chain">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/optimism.svg" alt="" width="28" height="28"><span>Optimism<small>Chain ID 10</small></span></span></th><td>WBTC, tBTC</td><td>ETH</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Optimism">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/polygon.svg" alt="" width="28" height="28"><span>Polygon<small>Chain ID 137</small></span></span></th><td>WBTC</td><td>POL</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Polygon">↗</a></td></tr><tr><th scope="row"><span class="c8831e7"><img src="assets/tokens/avalanche.svg" alt="" width="28" height="28"><span>Avalanche<small>Chain ID 43114</small></span></span></th><td>BTC.b</td><td>AVAX</td><td>0x address · EVM</td><td><a href="dashboard/" aria-label="Bridge BTC to Avalanche">↗</a></td></tr></tbody></table></div>
-<p class="c04d605">An EVM address can have the same format on several chains. Match the selected network as well as the address. Keep the destination gas asset available for later transfers.</p>
-</div></section>
+<header class="nav">
+  <a class="brand" href="index.html" aria-label="BTC Bridge home"><img src="icon.svg" alt=""><span>BTC Bridge</span></a>
+  <nav class="nlinks" aria-label="Primary">
+    <a href="#overview">What is it</a>
+    <a href="#compare">Custodial vs threshold</a>
+    <a href="#how">How to bridge</a>
+    <a href="#fees">Fees &amp; gas</a>
+    <a href="#security">Security</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <span class="spacer"></span>
+  <a class="chain" href="/dashboard/" style="text-decoration:none"><img src="assets/coin-btc.svg" alt=""><span>Bitcoin</span><svg class="cv" aria-hidden="true"><use href="#i-cv"/></svg></a>
+  <a class="connect" href="/dashboard/" style="text-decoration:none">Connect wallet</a>
+</header>
 
-<section class="c683b49" id="how"><div class="ca039cc c0c1893"><div><h2>How to bridge BTC from your wallet</h2><p class="cb1e552">Start with native BTC on Bitcoin and a receiving wallet on the destination chain. Keep both transaction records together as the transfer moves between networks.</p><div class="c8de75a"><div class="ce6c400"><span>Bitcoin deposit</span><span aria-hidden="true">→</span><span>Destination token</span></div><p>Native BTC is the input. A Bitcoin-backed token is the output. The route defines the token contract and the path back to Bitcoin.</p></div></div>
-<ol class="c79c6eb"><li><h3>Choose your destination</h3>Select the network and BTC token you want to receive. Check that your receiving wallet supports both.</li><li><h3>Review the transfer details</h3>Enter the BTC amount and destination address. Review the total fees, confirmation requirement and receiving amount.</li><li><h3>Send your BTC deposit</h3>Use the deposit address and amount assigned to your transfer. Save the Bitcoin transaction ID.</li><li><h3>Receive Bitcoin-backed tokens</h3>Follow the Bitcoin confirmations and destination settlement. Check the receiving wallet on the selected network.</li></ol>
-</div></section>
+<main>
+  <section class="hero">
+    <h1>BTC Bridge</h1>
 
-<section class="c683b49" id="fees"><div class="ca039cc c386552"><div><h2>BTC Bridge fees and transfer time</h2><p class="cb1e552">A bridge transfer has separate Bitcoin, route and destination costs. Read them together with the amount your destination wallet receives.</p><div class="ce116f4"><div class="c63b69f"><h3>Bitcoin network fee</h3><p>Paid in BTC when you send the deposit. The fee rate is measured in sat/vB; the total also depends on transaction size. More wallet inputs can increase the cost.</p></div><div class="c63b69f"><h3>Bridge and routing fee</h3><p>The route can charge a fixed fee, a percentage, or both. Token conversion and liquidity costs also affect the receiving amount.</p></div><div class="c63b69f"><h3>Destination settlement and gas</h3><p>Check whether delivery costs are included in the route. Later transfers or DeFi transactions use the destination network's gas asset.</p></div></div></div>
-<div class="c4d2f9a"><h3>Bitcoin confirmation time</h3><p>See how a route's required confirmations affect the Bitcoin part of the transfer.</p><div class="c56e360"><output id="minutes" for="confirmations">~30</output> <span>minutes</span></div><label for="confirmations"><span>Required confirmations</span><strong id="confirmation-count">3 blocks</strong></label><input type="range" id="confirmations" min="1" max="6" value="3" step="1" aria-describedby="time-formula"><p id="time-formula">3 confirmations × 10 minutes per block.</p><p class="c1c3830">Bitcoin targets a 10-minute average block interval. Actual block times vary. Add deposit queueing, bridge processing and destination settlement to the confirmation time.</p></div>
-</div></section>
+    <section class="card" aria-label="BTC Bridge">
+      <div class="tabs">
+        <button class="tab on" type="button">Deposit</button>
+        <button class="tab" type="button">Withdraw</button>
+        <span class="sp"></span>
+        <button class="ic gear" type="button" aria-label="Settings" data-toast="Settings are disabled in this demo."><svg aria-hidden="true"><use href="#i-gear"/></svg></button>
+      </div>
 
-<section class="c683b49" id="safety"><div class="ca039cc c35a268"><div><h2>BTC Bridge security: what to check</h2><p class="cb1e552">A bridge adds a custody or signer model and destination contracts to a Bitcoin transfer. Evaluate the route alongside the token you will hold.</p></div><ul class="cab42aa"><li><h3>Reserve and redemption model</h3><p>Understand who holds the underlying BTC, how reserves are tracked and how token holders redeem.</p></li><li><h3>Token contract and network</h3><p>Match the contract address to the selected chain. A familiar ticker alone is not enough to identify a token.</p></li><li><h3>Deposit and receiving address</h3><p>Check both addresses on your wallet screen. Use a small first transfer when setting up a new route.</p></li><li><h3>Confirmation and transfer records</h3><p>Keep the Bitcoin transaction ID and destination transaction hash. Use them to follow each stage of settlement.</p></li></ul></div></section>
+      <div class="promo">
+        <div class="promo-txt">
+          <h2 class="promo-h">Move native BTC to EVM chains</h2>
+          <p class="promo-sub">Send BTC from your Bitcoin wallet, receive wrapped BTC in your EVM wallet, and redeem back to BTC later.</p>
+        </div>
+        <div class="promo-grid" aria-hidden="true">
+          <span class="pico"><img src="assets/coin-btc.svg" alt=""></span>
+          <span class="pico"><img src="assets/coin-wbtc.svg" alt=""></span>
+          <span class="pico"><img src="assets/ethereum-eth.svg" alt=""></span>
+          <span class="pico"><img src="assets/net-arbitrum.svg" alt=""></span>
+        </div>
+      </div>
 
-<section class="c683b49" id="faq"><div class="ca039cc cbc977c"><div><h2>BTC Bridge FAQ</h2><p class="cb1e552">Answers about Bitcoin transfers, wrapped assets, wallets and redemption.</p></div><div class="c8b2d99"><details open><summary>What is BTC Bridge?</summary><p>BTC Bridge connects native Bitcoin to other blockchains through Bitcoin-backed tokens. Choose a destination such as Ethereum, Base or Solana, review the route, and receive the selected token in your destination wallet.</p></details><details><summary>How do I bridge BTC to Ethereum?</summary><p>Select Ethereum, enter your BTC amount and receiving address, and review the token and transfer fees. Send BTC to the deposit address assigned to the transfer. After the required Bitcoin confirmations and bridge processing, the destination token arrives on Ethereum.</p></details><details><summary>How long does a BTC bridge take?</summary><p>The total time includes Bitcoin confirmations, bridge processing and destination settlement. Bitcoin targets one block every 10 minutes on average. Three required confirmations correspond to roughly 30 minutes of confirmation time; queueing and settlement add to that interval.</p></details><details><summary>What fees do I pay to bridge Bitcoin?</summary><p>Review three components: the Bitcoin transaction fee, the route fee and destination settlement costs. The Bitcoin fee depends on the transaction size and sat/vB fee rate. Route fees can be fixed or percentage-based. Keep the destination gas asset available for later transactions.</p></details><details><summary>Is bridged BTC the same as native Bitcoin?</summary><p>Native BTC exists on the Bitcoin blockchain. On another network, you hold a token representing bitcoin, such as WBTC, cbBTC, tBTC, BTCB or BTC.b. Each token has its own reserve, custody and redemption arrangements.</p></details><details><summary>Can I bridge BTC back to Bitcoin?</summary><p>Use a redemption route that accepts your token on its current network and pays native BTC to a Bitcoin address. Review the minimum amount, redemption fee and confirmation requirements before sending the token.</p></details><details><summary>Which wallet do I need for BTC Bridge?</summary><p>Use a Bitcoin wallet for the deposit and a wallet compatible with the destination network for receipt. Ethereum, Base, Arbitrum, BNB Chain, Optimism, Polygon and Avalanche C-Chain use EVM addresses. Solana uses a Solana address.</p></details><details><summary>Why is my BTC bridge transfer still pending?</summary><p>Check the Bitcoin transaction first. An unconfirmed deposit is waiting for inclusion in a block; a confirmed deposit may still need additional confirmations. Once the route reaches its required count, bridge processing and destination settlement follow. Keep the transfer ID and both transaction records available.</p></details></div></div></section>
+      <div class="cta-wrap"><a class="cta" href="/dashboard/" style="display:flex;align-items:center;justify-content:center;text-decoration:none">Bridge BTC</a></div>
+    </section>
+  </section>
 
-<section class="c5ed121"><div class="ca039cc"><div><h2>Bridge BTC to your chosen network</h2><p>Choose a route and review your Bitcoin transfer in the app.</p></div><a class="c19c44b" href="dashboard/">Open BTC Bridge <span class="cf40db8" aria-hidden="true">↗</span></a></div></section>
+  <section class="learn" id="learn">
+    <p class="learn-h">Learn about BTC bridging</p>
+    <div class="lrow">
+      <details class="lcard" name="learn" id="overview"><summary><span>What is it</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody"><h2>What a BTC bridge does</h2>
+<p>Bitcoin cannot run Ethereum smart contracts, so BTC cannot be used directly in EVM DeFi. A <strong>BTC bridge</strong> locks native BTC on the Bitcoin network and issues a wrapped token on an EVM chain such as Ethereum or Arbitrum. Burning that token later releases native BTC back to a Bitcoin address.</p>
+<h3>Wrapped BTC tokens</h3>
+<p>The wrapped asset is an <a href="https://ethereum.org/en/developers/docs/standards/tokens/erc-20/" target="_blank" rel="nofollow noopener">ERC-20</a> token that tracks the price of BTC. WBTC, tBTC and cbBTC are examples of different models; they are named here only as examples, and this interface has no partnership with any of them.</p>
+<h3>Who holds the BTC</h3>
+<p>Every bridge relies on some party or network that holds the locked BTC: a single custodian, a federation, or a threshold network of signers. Nothing on Bitcoin itself enforces the wrapped token on the EVM side. The interface only builds the transactions; it never holds your funds.</p></div></details>
 
+      <details class="lcard" name="learn" id="compare"><summary><span>Custodial vs threshold</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody"><h2>Custodial vs threshold-bridged BTC</h2>
+<p>The two common designs differ mainly in who controls the locked BTC and what you must trust to redeem it.</p>
+<div class="tbl"><table><caption>Custodial wrapped BTC vs threshold-bridged BTC</caption><thead><tr><th scope="col"></th><th scope="col">Custodial</th><th scope="col">Threshold network</th></tr></thead><tbody><tr><th scope="row">Who holds the BTC</th><td>A company or custodian holds the keys</td><td>A group of signers holds key shares; no single party holds the full key</td></tr><tr><th scope="row">Minting</th><td>Approved through the custodian, often with identity checks</td><td>Done through the protocol's contracts and signer network</td></tr><tr><th scope="row">Redemption</th><td>Request to the custodian, who sends BTC</td><td>Burn on the EVM side; the signer network releases BTC</td></tr><tr><th scope="row">Trust model</th><td>Trust one organization and its legal and operational controls</td><td>Trust that enough signers stay honest and the code is correct</td></tr></tbody></table></div>
+<h3>No trustless option</h3>
+<p>Threshold designs spread the trust but do not remove it. Compare each token's reserves, signer set and redemption rules before you choose one.</p></div></details>
+
+      <details class="lcard" name="learn" id="how"><summary><span>How to bridge</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody"><h2>How to bridge BTC to an EVM chain</h2>
+<h3>Two wallets, two networks</h3>
+<p>You use a Bitcoin wallet to send BTC and an EVM wallet to receive the wrapped token. The interface shows the quote, the destination address and the expected output before anything is signed.</p>
+<h3>Step by step</h3>
+<ol>
+<li>Choose the destination EVM chain and the wrapped BTC token you want to receive.</li>
+<li>Connect your EVM wallet and check that the receiving address is yours.</li>
+<li>Enter the amount of BTC and review the quote, fees and expected output.</li>
+<li>Sign and send the BTC transaction from your Bitcoin wallet to the deposit address shown.</li>
+<li>Wait for Bitcoin confirmations; the wrapped token is then minted or released to your EVM wallet.</li>
+</ol>
+<p>To go back, burn or redeem the wrapped token on the EVM chain and give a Bitcoin address to receive native BTC.</p></div></details>
+
+      <details class="lcard" name="learn" id="fees"><summary><span>Fees &amp; gas</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody"><h2>What bridging BTC costs</h2>
+<h3>Bitcoin network fee</h3>
+<p>Sending BTC is a normal Bitcoin transaction, so you pay a network fee in BTC. It rises and falls with demand for block space, and low fees can mean slower confirmation.</p>
+<h3>EVM gas</h3>
+<p>On the EVM side, any approval, claim or redemption transaction is paid in the chain's native token: ETH on Ethereum and Arbitrum, or the native token of another chain. Holding wrapped BTC does not pay for gas.</p>
+<h3>Bridge or protocol fee</h3>
+<p>Some designs charge a mint or redeem fee, or take a spread. Any such cost appears in the quote, along with the amount you should receive. Keep a little native token on the EVM chain before you start.</p></div></details>
+
+      <details class="lcard" name="learn" id="security"><summary><span>Security</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody"><h2>Staying safe when bridging BTC</h2>
+<h3>Non-custodial interface</h3>
+<p>You connect your own wallets and sign every transaction yourself. The interface builds and displays transactions; it never holds your funds or private keys.</p>
+<h3>Bridge risk remains</h3>
+<p>The custodian, federation or signer network behind the wrapped token can fail, be compromised or freeze redemptions. Smart contract bugs are a separate risk, so exposure is never zero.</p>
+<h3>Before you sign</h3>
+<ul>
+<li>Verify the token contract address on the EVM chain; fake wrapped BTC tokens are common.</li>
+<li>Double-check the Bitcoin deposit address and your receiving EVM address.</li>
+<li>Try a small amount first, especially for a new route or token.</li>
+<li>Read the redemption terms of the wrapped token before you hold a large balance.</li>
+</ul></div></details>
+
+      <details class="lcard" name="learn" id="faq"><summary><span>FAQ</span><span class="chev" aria-hidden="true"></span></summary><div class="lbody lfaq"><h2>BTC Bridge FAQ</h2>
+<h3>What is a BTC bridge?</h3>
+<p>A BTC bridge locks native Bitcoin with a custodian, federation or threshold signer network, and issues a wrapped BTC token on an EVM chain. You can burn the token later to get native BTC back.</p>
+<h3>Does a BTC bridge send my actual bitcoin to Ethereum?</h3>
+<p>No. Native BTC always stays on the Bitcoin network. What reaches Ethereum or Arbitrum is a token that represents BTC held by the bridge's custodian or signer network.</p>
+<h3>Who holds my BTC while I hold wrapped BTC?</h3>
+<p>The custodian, federation or threshold network behind the token holds it. This interface never holds your funds; it only helps you build and sign the transactions from your own wallets.</p>
+<h3>What is the difference between WBTC, tBTC and cbBTC?</h3>
+<p>They are examples of different models: some are issued by a custodian, others by a threshold network of signers. Each has its own reserves, redemption rules and trust assumptions. This interface has no partnership with any of them.</p>
+<h3>Which wallets and gas do I need to bridge BTC?</h3>
+<p>You need a Bitcoin wallet to send BTC and an EVM wallet to receive the wrapped token. You pay a Bitcoin network fee in BTC, plus gas in ETH or the chain's native token for EVM-side transactions.</p>
+<h3>Can I turn wrapped BTC back into native BTC?</h3>
+<p>Yes, through the redemption process of the token you hold. You burn or redeem it on the EVM chain and provide a Bitcoin address. Timing, fees and any limits depend on that token's design.</p></div></details>
+    </div>
+  </section>
 </main>
-<footer class="cd09434"><div class="ca039cc"><div class="c64300f"><div class="cee627e"><img src="assets/tokens/btc.svg" alt="" width="28" height="28"><span>BTC Bridge</span></div><nav aria-label="Footer"><a href="#routes">Networks</a><a href="#fees">Fees &amp; timing</a><a href="#safety">Security</a><a href="dashboard/">Open app ↗</a></nav></div><p class="cce7085">© 2026 BTC Bridge. Bitcoin to eight destination networks.</p></div></footer>
-<script src="bridge.js" defer></script>
-</body>
-</html>
+
+<footer>
+  <div class="foot"><span>&copy; 2026 BTC Bridge</span><span class="sep">&middot;</span><a href="legal.html#privacy">Privacy</a><span class="sep">&middot;</span><a href="legal.html#terms">Terms</a><span class="sep">&middot;</span><span>Non-custodial &middot; BTC to EVM</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+var tabs=[].slice.call(document.querySelectorAll('.tab'));
+tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){x.classList.toggle('on',x===t);});});});
+
+var toast=document.getElementById('toast'),tT;
+function notify(m){toast.textContent=m;toast.classList.add('show');clearTimeout(tT);tT=setTimeout(function(){toast.classList.remove('show');},3000);}
+[].slice.call(document.querySelectorAll('[data-toast]')).forEach(function(b){b.addEventListener('click',function(){notify(b.getAttribute('data-toast'));});});
+
+function openHash(){var id=location.hash.slice(1);if(!id)return;var c=document.getElementById(id);if(c&&c.matches&&c.matches('.lcard[name="learn"]'))c.open=true;}
+window.addEventListener('hashchange',openHash);openHash();
+[].slice.call(document.querySelectorAll('.nlinks a')).forEach(function(a){a.addEventListener('click',function(){var c=document.getElementById(a.getAttribute('href').slice(1));if(c&&c.matches('.lcard'))c.open=true;});});
+})();
+</script>
+</body></html>

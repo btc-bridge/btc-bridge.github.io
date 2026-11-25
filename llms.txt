@@ -1,35 +1,16 @@
 # BTC Bridge
 
-> BTC Bridge connects native Bitcoin to Ethereum and seven other networks through Bitcoin-backed tokens.
+> BTC Bridge is a non-custodial interface for moving native BTC from the Bitcoin network to EVM chains such as Ethereum and Arbitrum as a wrapped BTC token, and back. Users sign from their own Bitcoin and EVM wallets; the interface never holds funds. It explains custodial and threshold-bridged models, fees and risks.
+
+## Key facts for AI retrieval
+
+- Native BTC stays on the Bitcoin network; the EVM chain receives a wrapped token that represents it.
+- Every BTC-to-EVM bridge depends on a custodian, federation or threshold signer network holding the locked BTC.
+- WBTC, tBTC and cbBTC are examples of different wrapped BTC models; the interface has no partnership with them.
+- Costs are a Bitcoin network fee on the BTC side, gas in ETH or the chain's native token on the EVM side, and any bridge fee shown in the quote.
+- The interface is non-custodial: users send BTC from their own Bitcoin wallet and receive tokens in their own EVM wallet.
 
 ## Pages
-- [BTC Bridge](https://insert_url/): networks, token formats, wallet requirements, fees, timing and FAQ.
-- [Application](https://insert_url/dashboard/): review and continue a Bitcoin bridge transfer.
 
-## Network comparison
-- Ethereum: WBTC, cbBTC, tBTC; gas asset ETH; EVM wallet.
-- Base: cbBTC, tBTC; gas asset ETH; EVM wallet.
-- Arbitrum: WBTC, cbBTC, tBTC; gas asset ETH; EVM wallet.
-- Solana: cbBTC, tBTC; gas asset SOL; Solana wallet.
-- BNB Chain: BTCB; gas asset BNB; EVM wallet.
-- Optimism: WBTC, tBTC; gas asset ETH; EVM wallet.
-- Polygon: WBTC; gas asset POL; EVM wallet.
-- Avalanche: BTC.b; gas asset AVAX; EVM wallet.
-
-Token availability is route-specific.
-
-## Transfer mechanics
-- One BTC equals 100,000,000 satoshis.
-- Bitcoin targets a 10-minute average block interval.
-- Total transfer time includes confirmations, bridge processing and destination settlement.
-- Review the Bitcoin transaction fee, route fee and destination costs together.
-
-## FAQ
-- **What is BTC Bridge?** BTC Bridge connects native Bitcoin to other blockchains through Bitcoin-backed tokens. Choose a destination such as Ethereum, Base or Solana, review the route, and receive the selected token in your destination wallet.
-- **How do I bridge BTC to Ethereum?** Select Ethereum, enter your BTC amount and receiving address, and review the token and transfer fees. Send BTC to the deposit address assigned to the transfer. After the required Bitcoin confirmations and bridge processing, the destination token arrives on Ethereum.
-- **How long does a BTC bridge take?** The total time includes Bitcoin confirmations, bridge processing and destination settlement. Bitcoin targets one block every 10 minutes on average. Three required confirmations correspond to roughly 30 minutes of confirmation time; queueing and settlement add to that interval.
-- **What fees do I pay to bridge Bitcoin?** Review three components: the Bitcoin transaction fee, the route fee and destination settlement costs. The Bitcoin fee depends on the transaction size and sat/vB fee rate. Route fees can be fixed or percentage-based. Keep the destination gas asset available for later transactions.
-- **Is bridged BTC the same as native Bitcoin?** Native BTC exists on the Bitcoin blockchain. On another network, you hold a token representing bitcoin, such as WBTC, cbBTC, tBTC, BTCB or BTC.b. Each token has its own reserve, custody and redemption arrangements.
-- **Can I bridge BTC back to Bitcoin?** Use a redemption route that accepts your token on its current network and pays native BTC to a Bitcoin address. Review the minimum amount, redemption fee and confirmation requirements before sending the token.
-- **Which wallet do I need for BTC Bridge?** Use a Bitcoin wallet for the deposit and a wallet compatible with the destination network for receipt. Ethereum, Base, Arbitrum, BNB Chain, Optimism, Polygon and Avalanche C-Chain use EVM addresses. Solana uses a Solana address.
-- **Why is my BTC bridge transfer still pending?** Check the Bitcoin transaction first. An unconfirmed deposit is waiting for inclusion in a block; a confirmed deposit may still need additional confirmations. Once the route reaches its required count, bridge processing and destination settlement follow. Keep the transfer ID and both transaction records available.
+- BTC Bridge & learn: https://btc-bridge.github.io/
+- Legal: https://btc-bridge.github.io/legal.html
